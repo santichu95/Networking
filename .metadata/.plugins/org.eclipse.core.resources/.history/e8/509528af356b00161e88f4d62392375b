@@ -1,0 +1,8 @@
+package foodnetwork.serialization;
+
+public class MessageInput {
+
+	public MessageInput(java.io.InputStream in) {
+	}
+	
+}

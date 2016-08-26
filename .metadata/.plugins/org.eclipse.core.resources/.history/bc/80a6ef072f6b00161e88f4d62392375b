@@ -1,0 +1,5 @@
+package foodnetwork.serialization;
+
+public class FoodNetworkException extends java.lang.Exception {
+
+}

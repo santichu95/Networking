@@ -1,0 +1,9 @@
+package foodnetwork.serialization;
+/** Exception for food network handling
+ * 
+ * @author Santiago Andaluz Ruiz
+ *
+ */
+public class FoodNetworkException extends java.lang.Exception {
+
+}

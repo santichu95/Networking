@@ -1,0 +1,10 @@
+package foodnetwork.serialization;
+
+public class MessageInput {
+
+	public MessageInput() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+}

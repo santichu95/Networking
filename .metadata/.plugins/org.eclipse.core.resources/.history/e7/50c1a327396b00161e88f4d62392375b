@@ -1,0 +1,10 @@
+package foodnetwork.serialization;
+
+/** Represents FoodItem and provides serialization/deserialization
+ * 
+ * @author Santiago Andaluz Ruiz
+ *
+ */
+public class FoodItem {
+
+}
