@@ -7,11 +7,13 @@ package foodnetwork.serialization;
 @SuppressWarnings("serial")
 public class FoodNetworkException extends java.lang.Exception {
 	
+	String message;
 	/**Constructs food network exception with null cause
 	 * 
 	 * @param message exception message
 	 */
 	public FoodNetworkException(String message) {
+		super(message);
 	}
 	
 	/**Constructs food network exception
@@ -20,7 +22,7 @@ public class FoodNetworkException extends java.lang.Exception {
 	 * @param cause	exception cause
 	 */
 	public FoodNetworkException(String message, Throwable cause){
-		
+		super(message, cause);
 	}
 	
 }

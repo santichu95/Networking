@@ -290,3 +290,473 @@ user global configuration and to define the default location to store repositori
 not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
 EGit might behave differently since they see different configuration options.
 This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+!SESSION 2016-08-30 15:40:17.340 -----------------------------------------------
+eclipse.buildId=4.6.0.I20160606-1100
+java.version=1.8.0_101
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-08-30 15:40:45.270
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Santi'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.epp.mpc.core 1 0 2016-08-30 15:44:19.765
+!MESSAGE Cannot parse XML at URL http://marketplace.eclipse.org/featured/api/p?client=org.eclipse.epp.mpc.core&client.version=1.5.0.v20160608-1457&os=win32&ws=win32&nl=en_US&java.version=1.8.0_101&product=org.eclipse.epp.package.java.product&product.version=4.6.0.I20160606-1100&runtime.version=3.12.0.v20160606-1342&platform.version=4.6.0.v20160606-1100: Unexpected response content: Parse result is null.
+!STACK 1
+org.eclipse.epp.mpc.core.service.UnmarshalException: Unexpected response content: Parse result is null.
+	at org.eclipse.epp.internal.mpc.core.service.MarketplaceUnmarshaller.unmarshal(MarketplaceUnmarshaller.java:73)
+	at org.eclipse.epp.internal.mpc.core.service.RemoteMarketplaceService.processRequest(RemoteMarketplaceService.java:141)
+	at org.eclipse.epp.internal.mpc.core.service.RemoteMarketplaceService.processRequest(RemoteMarketplaceService.java:101)
+	at org.eclipse.epp.internal.mpc.core.service.RemoteMarketplaceService.processRequest(RemoteMarketplaceService.java:88)
+	at org.eclipse.epp.internal.mpc.core.service.DefaultMarketplaceService.featured(DefaultMarketplaceService.java:443)
+	at org.eclipse.epp.internal.mpc.core.service.DefaultMarketplaceService.featured(DefaultMarketplaceService.java:425)
+	at org.eclipse.epp.internal.mpc.core.service.DefaultMarketplaceService.featured(DefaultMarketplaceService.java:1)
+	at org.eclipse.epp.internal.mpc.core.service.CachingMarketplaceService$3.doSearch(CachingMarketplaceService.java:276)
+	at org.eclipse.epp.internal.mpc.core.service.CachingMarketplaceService.performSearch(CachingMarketplaceService.java:249)
+	at org.eclipse.epp.internal.mpc.core.service.CachingMarketplaceService.featured(CachingMarketplaceService.java:273)
+	at org.eclipse.epp.internal.mpc.ui.catalog.MarketplaceDiscoveryStrategy.doPerformDiscovery(MarketplaceDiscoveryStrategy.java:222)
+	at org.eclipse.epp.internal.mpc.ui.catalog.MarketplaceDiscoveryStrategy.performDiscovery(MarketplaceDiscoveryStrategy.java:213)
+	at org.eclipse.equinox.internal.p2.discovery.Catalog.performDiscovery(Catalog.java:85)
+	at org.eclipse.epp.internal.mpc.ui.catalog.MarketplaceCatalog.performDiscovery(MarketplaceCatalog.java:360)
+	at org.eclipse.equinox.internal.p2.ui.discovery.wizards.CatalogViewer$6.run(CatalogViewer.java:569)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:119)
+Contains: Received response begins with:
+
+1: 
+2: <html>
+3: <head>
+
+!SUBENTRY 1 org.eclipse.epp.mpc.core 1 0 2016-08-30 15:44:19.768
+!MESSAGE Unexpected response content: Parse result is null.
+!SUBENTRY 2 org.eclipse.epp.mpc.core 1 0 2016-08-30 15:44:19.768
+!MESSAGE Received response begins with:
+
+1: 
+2: <html>
+3: <head>
+
+!SUBENTRY 1 org.eclipse.epp.mpc.core 1 0 2016-08-30 15:44:19.768
+!MESSAGE Unexpected response content: Parse result is null.
+!SUBENTRY 2 org.eclipse.epp.mpc.core 1 0 2016-08-30 15:44:19.768
+!MESSAGE Received response begins with:
+
+1: 
+2: <html>
+3: <head>
+
+
+!ENTRY org.eclipse.equinox.p2.discovery 4 0 2016-08-30 15:44:21.368
+!MESSAGE MarketplaceDiscoveryStrategy failed with an error
+!STACK 1
+org.eclipse.core.runtime.CoreException: Cannot complete request to http://marketplace.eclipse.org/featured/api/p?client=org.eclipse.epp.mpc.core&client.version=1.5.0.v20160608-1457&os=win32&ws=win32&nl=en_US&java.version=1.8.0_101&product=org.eclipse.epp.package.java.product&product.version=4.6.0.I20160606-1100&runtime.version=3.12.0.v20160606-1342&platform.version=4.6.0.v20160606-1100: Unexpected response content: Parse result is null.
+	at org.eclipse.epp.internal.mpc.core.service.RemoteMarketplaceService.processRequest(RemoteMarketplaceService.java:171)
+	at org.eclipse.epp.internal.mpc.core.service.RemoteMarketplaceService.processRequest(RemoteMarketplaceService.java:101)
+	at org.eclipse.epp.internal.mpc.core.service.RemoteMarketplaceService.processRequest(RemoteMarketplaceService.java:88)
+	at org.eclipse.epp.internal.mpc.core.service.DefaultMarketplaceService.featured(DefaultMarketplaceService.java:443)
+	at org.eclipse.epp.internal.mpc.core.service.DefaultMarketplaceService.featured(DefaultMarketplaceService.java:425)
+	at org.eclipse.epp.internal.mpc.core.service.DefaultMarketplaceService.featured(DefaultMarketplaceService.java:1)
+	at org.eclipse.epp.internal.mpc.core.service.CachingMarketplaceService$3.doSearch(CachingMarketplaceService.java:276)
+	at org.eclipse.epp.internal.mpc.core.service.CachingMarketplaceService.performSearch(CachingMarketplaceService.java:249)
+	at org.eclipse.epp.internal.mpc.core.service.CachingMarketplaceService.featured(CachingMarketplaceService.java:273)
+	at org.eclipse.epp.internal.mpc.ui.catalog.MarketplaceDiscoveryStrategy.doPerformDiscovery(MarketplaceDiscoveryStrategy.java:222)
+	at org.eclipse.epp.internal.mpc.ui.catalog.MarketplaceDiscoveryStrategy.performDiscovery(MarketplaceDiscoveryStrategy.java:213)
+	at org.eclipse.equinox.internal.p2.discovery.Catalog.performDiscovery(Catalog.java:85)
+	at org.eclipse.epp.internal.mpc.ui.catalog.MarketplaceCatalog.performDiscovery(MarketplaceCatalog.java:360)
+	at org.eclipse.equinox.internal.p2.ui.discovery.wizards.CatalogViewer$6.run(CatalogViewer.java:569)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:119)
+Caused by: org.eclipse.epp.mpc.core.service.UnmarshalException: Unexpected response content: Parse result is null.
+	at org.eclipse.epp.internal.mpc.core.service.MarketplaceUnmarshaller.unmarshal(MarketplaceUnmarshaller.java:73)
+	at org.eclipse.epp.internal.mpc.core.service.RemoteMarketplaceService.processRequest(RemoteMarketplaceService.java:141)
+	... 14 more
+!SUBENTRY 1 org.eclipse.epp.mpc.core 4 0 2016-08-30 15:44:21.368
+!MESSAGE Cannot complete request to http://marketplace.eclipse.org/featured/api/p?client=org.eclipse.epp.mpc.core&client.version=1.5.0.v20160608-1457&os=win32&ws=win32&nl=en_US&java.version=1.8.0_101&product=org.eclipse.epp.package.java.product&product.version=4.6.0.I20160606-1100&runtime.version=3.12.0.v20160606-1342&platform.version=4.6.0.v20160606-1100: Unexpected response content: Parse result is null.
+!STACK 1
+org.eclipse.epp.mpc.core.service.UnmarshalException: Unexpected response content: Parse result is null.
+	at org.eclipse.epp.internal.mpc.core.service.MarketplaceUnmarshaller.unmarshal(MarketplaceUnmarshaller.java:73)
+	at org.eclipse.epp.internal.mpc.core.service.RemoteMarketplaceService.processRequest(RemoteMarketplaceService.java:141)
+	at org.eclipse.epp.internal.mpc.core.service.RemoteMarketplaceService.processRequest(RemoteMarketplaceService.java:101)
+	at org.eclipse.epp.internal.mpc.core.service.RemoteMarketplaceService.processRequest(RemoteMarketplaceService.java:88)
+	at org.eclipse.epp.internal.mpc.core.service.DefaultMarketplaceService.featured(DefaultMarketplaceService.java:443)
+	at org.eclipse.epp.internal.mpc.core.service.DefaultMarketplaceService.featured(DefaultMarketplaceService.java:425)
+	at org.eclipse.epp.internal.mpc.core.service.DefaultMarketplaceService.featured(DefaultMarketplaceService.java:1)
+	at org.eclipse.epp.internal.mpc.core.service.CachingMarketplaceService$3.doSearch(CachingMarketplaceService.java:276)
+	at org.eclipse.epp.internal.mpc.core.service.CachingMarketplaceService.performSearch(CachingMarketplaceService.java:249)
+	at org.eclipse.epp.internal.mpc.core.service.CachingMarketplaceService.featured(CachingMarketplaceService.java:273)
+	at org.eclipse.epp.internal.mpc.ui.catalog.MarketplaceDiscoveryStrategy.doPerformDiscovery(MarketplaceDiscoveryStrategy.java:222)
+	at org.eclipse.epp.internal.mpc.ui.catalog.MarketplaceDiscoveryStrategy.performDiscovery(MarketplaceDiscoveryStrategy.java:213)
+	at org.eclipse.equinox.internal.p2.discovery.Catalog.performDiscovery(Catalog.java:85)
+	at org.eclipse.epp.internal.mpc.ui.catalog.MarketplaceCatalog.performDiscovery(MarketplaceCatalog.java:360)
+	at org.eclipse.equinox.internal.p2.ui.discovery.wizards.CatalogViewer$6.run(CatalogViewer.java:569)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:119)
+Contains: Received response begins with:
+
+1: 
+2: <html>
+3: <head>
+
+!SUBENTRY 2 org.eclipse.epp.mpc.core 1 0 2016-08-30 15:44:21.369
+!MESSAGE Unexpected response content: Parse result is null.
+!SUBENTRY 3 org.eclipse.epp.mpc.core 1 0 2016-08-30 15:44:21.369
+!MESSAGE Received response begins with:
+
+1: 
+2: <html>
+3: <head>
+
+
+!ENTRY org.eclipse.epp.mpc.core 1 0 2016-08-30 15:44:45.284
+!MESSAGE Cannot parse XML at URL http://marketplace.eclipse.org/api/p/search/apachesolr_search/vim?client=org.eclipse.epp.mpc.core&client.version=1.5.0.v20160608-1457&os=win32&ws=win32&nl=en_US&java.version=1.8.0_101&product=org.eclipse.epp.package.java.product&product.version=4.6.0.I20160606-1100&runtime.version=3.12.0.v20160606-1342&platform.version=4.6.0.v20160606-1100: Unexpected response content: Parse result is null.
+!STACK 1
+org.eclipse.epp.mpc.core.service.UnmarshalException: Unexpected response content: Parse result is null.
+	at org.eclipse.epp.internal.mpc.core.service.MarketplaceUnmarshaller.unmarshal(MarketplaceUnmarshaller.java:73)
+	at org.eclipse.epp.internal.mpc.core.service.RemoteMarketplaceService.processRequest(RemoteMarketplaceService.java:141)
+	at org.eclipse.epp.internal.mpc.core.service.RemoteMarketplaceService.processRequest(RemoteMarketplaceService.java:101)
+	at org.eclipse.epp.internal.mpc.core.service.RemoteMarketplaceService.processRequest(RemoteMarketplaceService.java:88)
+	at org.eclipse.epp.internal.mpc.core.service.DefaultMarketplaceService.processSearchRequest(DefaultMarketplaceService.java:396)
+	at org.eclipse.epp.internal.mpc.core.service.DefaultMarketplaceService.search(DefaultMarketplaceService.java:309)
+	at org.eclipse.epp.internal.mpc.core.service.DefaultMarketplaceService.search(DefaultMarketplaceService.java:1)
+	at org.eclipse.epp.internal.mpc.core.service.CachingMarketplaceService$1.doSearch(CachingMarketplaceService.java:224)
+	at org.eclipse.epp.internal.mpc.core.service.CachingMarketplaceService.performSearch(CachingMarketplaceService.java:249)
+	at org.eclipse.epp.internal.mpc.core.service.CachingMarketplaceService.search(CachingMarketplaceService.java:221)
+	at org.eclipse.epp.internal.mpc.ui.catalog.MarketplaceDiscoveryStrategy.performQuery(MarketplaceDiscoveryStrategy.java:497)
+	at org.eclipse.epp.internal.mpc.ui.catalog.MarketplaceCatalog$1.run(MarketplaceCatalog.java:75)
+	at org.eclipse.epp.internal.mpc.ui.catalog.MarketplaceCatalog.performDiscovery(MarketplaceCatalog.java:440)
+	at org.eclipse.epp.internal.mpc.ui.catalog.MarketplaceCatalog.performQuery(MarketplaceCatalog.java:73)
+	at org.eclipse.epp.internal.mpc.ui.wizards.MarketplaceViewer$9.run(MarketplaceViewer.java:620)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:119)
+Contains: Received response begins with:
+
+1: 
+2: <html>
+3: <head>
+
+!SUBENTRY 1 org.eclipse.epp.mpc.core 1 0 2016-08-30 15:44:45.285
+!MESSAGE Unexpected response content: Parse result is null.
+!SUBENTRY 2 org.eclipse.epp.mpc.core 1 0 2016-08-30 15:44:45.285
+!MESSAGE Received response begins with:
+
+1: 
+2: <html>
+3: <head>
+
+!SUBENTRY 1 org.eclipse.epp.mpc.core 1 0 2016-08-30 15:44:45.285
+!MESSAGE Unexpected response content: Parse result is null.
+!SUBENTRY 2 org.eclipse.epp.mpc.core 1 0 2016-08-30 15:44:45.285
+!MESSAGE Received response begins with:
+
+1: 
+2: <html>
+3: <head>
+
+
+!ENTRY org.eclipse.equinox.p2.discovery 4 0 2016-08-30 15:44:46.498
+!MESSAGE MarketplaceDiscoveryStrategy failed with an error
+!STACK 1
+org.eclipse.core.runtime.CoreException: Cannot complete request to http://marketplace.eclipse.org/api/p/search/apachesolr_search/vim?client=org.eclipse.epp.mpc.core&client.version=1.5.0.v20160608-1457&os=win32&ws=win32&nl=en_US&java.version=1.8.0_101&product=org.eclipse.epp.package.java.product&product.version=4.6.0.I20160606-1100&runtime.version=3.12.0.v20160606-1342&platform.version=4.6.0.v20160606-1100: Unexpected response content: Parse result is null.
+	at org.eclipse.epp.internal.mpc.core.service.RemoteMarketplaceService.processRequest(RemoteMarketplaceService.java:171)
+	at org.eclipse.epp.internal.mpc.core.service.RemoteMarketplaceService.processRequest(RemoteMarketplaceService.java:101)
+	at org.eclipse.epp.internal.mpc.core.service.RemoteMarketplaceService.processRequest(RemoteMarketplaceService.java:88)
+	at org.eclipse.epp.internal.mpc.core.service.DefaultMarketplaceService.processSearchRequest(DefaultMarketplaceService.java:396)
+	at org.eclipse.epp.internal.mpc.core.service.DefaultMarketplaceService.search(DefaultMarketplaceService.java:309)
+	at org.eclipse.epp.internal.mpc.core.service.DefaultMarketplaceService.search(DefaultMarketplaceService.java:1)
+	at org.eclipse.epp.internal.mpc.core.service.CachingMarketplaceService$1.doSearch(CachingMarketplaceService.java:224)
+	at org.eclipse.epp.internal.mpc.core.service.CachingMarketplaceService.performSearch(CachingMarketplaceService.java:249)
+	at org.eclipse.epp.internal.mpc.core.service.CachingMarketplaceService.search(CachingMarketplaceService.java:221)
+	at org.eclipse.epp.internal.mpc.ui.catalog.MarketplaceDiscoveryStrategy.performQuery(MarketplaceDiscoveryStrategy.java:497)
+	at org.eclipse.epp.internal.mpc.ui.catalog.MarketplaceCatalog$1.run(MarketplaceCatalog.java:75)
+	at org.eclipse.epp.internal.mpc.ui.catalog.MarketplaceCatalog.performDiscovery(MarketplaceCatalog.java:440)
+	at org.eclipse.epp.internal.mpc.ui.catalog.MarketplaceCatalog.performQuery(MarketplaceCatalog.java:73)
+	at org.eclipse.epp.internal.mpc.ui.wizards.MarketplaceViewer$9.run(MarketplaceViewer.java:620)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:119)
+Caused by: org.eclipse.epp.mpc.core.service.UnmarshalException: Unexpected response content: Parse result is null.
+	at org.eclipse.epp.internal.mpc.core.service.MarketplaceUnmarshaller.unmarshal(MarketplaceUnmarshaller.java:73)
+	at org.eclipse.epp.internal.mpc.core.service.RemoteMarketplaceService.processRequest(RemoteMarketplaceService.java:141)
+	... 14 more
+!SUBENTRY 1 org.eclipse.epp.mpc.core 4 0 2016-08-30 15:44:46.499
+!MESSAGE Cannot complete request to http://marketplace.eclipse.org/api/p/search/apachesolr_search/vim?client=org.eclipse.epp.mpc.core&client.version=1.5.0.v20160608-1457&os=win32&ws=win32&nl=en_US&java.version=1.8.0_101&product=org.eclipse.epp.package.java.product&product.version=4.6.0.I20160606-1100&runtime.version=3.12.0.v20160606-1342&platform.version=4.6.0.v20160606-1100: Unexpected response content: Parse result is null.
+!STACK 1
+org.eclipse.epp.mpc.core.service.UnmarshalException: Unexpected response content: Parse result is null.
+	at org.eclipse.epp.internal.mpc.core.service.MarketplaceUnmarshaller.unmarshal(MarketplaceUnmarshaller.java:73)
+	at org.eclipse.epp.internal.mpc.core.service.RemoteMarketplaceService.processRequest(RemoteMarketplaceService.java:141)
+	at org.eclipse.epp.internal.mpc.core.service.RemoteMarketplaceService.processRequest(RemoteMarketplaceService.java:101)
+	at org.eclipse.epp.internal.mpc.core.service.RemoteMarketplaceService.processRequest(RemoteMarketplaceService.java:88)
+	at org.eclipse.epp.internal.mpc.core.service.DefaultMarketplaceService.processSearchRequest(DefaultMarketplaceService.java:396)
+	at org.eclipse.epp.internal.mpc.core.service.DefaultMarketplaceService.search(DefaultMarketplaceService.java:309)
+	at org.eclipse.epp.internal.mpc.core.service.DefaultMarketplaceService.search(DefaultMarketplaceService.java:1)
+	at org.eclipse.epp.internal.mpc.core.service.CachingMarketplaceService$1.doSearch(CachingMarketplaceService.java:224)
+	at org.eclipse.epp.internal.mpc.core.service.CachingMarketplaceService.performSearch(CachingMarketplaceService.java:249)
+	at org.eclipse.epp.internal.mpc.core.service.CachingMarketplaceService.search(CachingMarketplaceService.java:221)
+	at org.eclipse.epp.internal.mpc.ui.catalog.MarketplaceDiscoveryStrategy.performQuery(MarketplaceDiscoveryStrategy.java:497)
+	at org.eclipse.epp.internal.mpc.ui.catalog.MarketplaceCatalog$1.run(MarketplaceCatalog.java:75)
+	at org.eclipse.epp.internal.mpc.ui.catalog.MarketplaceCatalog.performDiscovery(MarketplaceCatalog.java:440)
+	at org.eclipse.epp.internal.mpc.ui.catalog.MarketplaceCatalog.performQuery(MarketplaceCatalog.java:73)
+	at org.eclipse.epp.internal.mpc.ui.wizards.MarketplaceViewer$9.run(MarketplaceViewer.java:620)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:119)
+Contains: Received response begins with:
+
+1: 
+2: <html>
+3: <head>
+
+!SUBENTRY 2 org.eclipse.epp.mpc.core 1 0 2016-08-30 15:44:46.499
+!MESSAGE Unexpected response content: Parse result is null.
+!SUBENTRY 3 org.eclipse.epp.mpc.core 1 0 2016-08-30 15:44:46.499
+!MESSAGE Received response begins with:
+
+1: 
+2: <html>
+3: <head>
+
+
+!ENTRY org.eclipse.epp.mpc.ui 1 0 2016-08-30 15:50:38.095
+!MESSAGE Performing Marketplace install request from http://marketplace.eclipse.org/marketplace-client-intro?mpc_install=881
+!SESSION 2016-08-30 15:52:33.020 -----------------------------------------------
+eclipse.buildId=4.6.0.I20160606-1100
+java.version=1.8.0_101
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product -data file:/C:/Users/Santi/Documents/Networking/ -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-08-30 15:52:40.434
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Santi'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.recommenders.types.rcp 1 4 2016-08-30 16:47:44.469
+!MESSAGE Full project indexing required:
+  [+] C:\Program Files\Java\jre1.8.0_101\lib\charsets.jar
+  [+] C:\Program Files\Java\jre1.8.0_101\lib\ext\access-bridge-64.jar
+  [+] C:\Program Files\Java\jre1.8.0_101\lib\ext\cldrdata.jar
+  [+] C:\Program Files\Java\jre1.8.0_101\lib\ext\dnsns.jar
+  [+] C:\Program Files\Java\jre1.8.0_101\lib\ext\jaccess.jar
+  [+] C:\Program Files\Java\jre1.8.0_101\lib\ext\jfxrt.jar
+  [+] C:\Program Files\Java\jre1.8.0_101\lib\ext\localedata.jar
+  [+] C:\Program Files\Java\jre1.8.0_101\lib\ext\nashorn.jar
+  [+] C:\Program Files\Java\jre1.8.0_101\lib\ext\sunec.jar
+  [+] C:\Program Files\Java\jre1.8.0_101\lib\ext\sunjce_provider.jar
+  [+] C:\Program Files\Java\jre1.8.0_101\lib\ext\sunmscapi.jar
+  [+] C:\Program Files\Java\jre1.8.0_101\lib\ext\sunpkcs11.jar
+  [+] C:\Program Files\Java\jre1.8.0_101\lib\ext\zipfs.jar
+  [+] C:\Program Files\Java\jre1.8.0_101\lib\jce.jar
+  [+] C:\Program Files\Java\jre1.8.0_101\lib\jfr.jar
+  [+] C:\Program Files\Java\jre1.8.0_101\lib\jsse.jar
+  [+] C:\Program Files\Java\jre1.8.0_101\lib\resources.jar
+  [+] C:\Program Files\Java\jre1.8.0_101\lib\rt.jar
+  [+] C:\Users\Santi\.p2\pool\plugins\org.hamcrest.core_1.3.0.v201303031735.jar
+  [+] C:\Users\Santi\.p2\pool\plugins\org.junit_4.12.0.v201504281640\junit.jar
+
+!STACK 0
+org.eclipse.recommenders.utils.Logs$LogTraceException
+	at org.eclipse.recommenders.utils.Logs$LogTraceException.newTrace(Logs.java:381)
+	at org.eclipse.recommenders.utils.Logs.log(Logs.java:134)
+	at org.eclipse.recommenders.internal.types.rcp.ProjectTypesIndex.needsRebuild(ProjectTypesIndex.java:169)
+	at org.eclipse.recommenders.internal.types.rcp.ProjectTypesIndex.startUp(ProjectTypesIndex.java:122)
+	at com.google.common.util.concurrent.AbstractIdleService$2$1.run(AbstractIdleService.java:54)
+	at com.google.common.util.concurrent.Callables$3.run(Callables.java:93)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY net.sourceforge.vrapper.eclipse 4 0 2016-08-30 17:18:16.395
+!MESSAGE Command not handled: org.eclipse.ui.navigate.forwardHistory
+!STACK 0
+org.eclipse.core.commands.NotEnabledException: Trying to execute the disabled command org.eclipse.ui.navigate.forwardHistory
+	at org.eclipse.core.commands.Command.executeWithChecks(Command.java:485)
+	at org.eclipse.core.commands.ParameterizedCommand.executeWithChecks(ParameterizedCommand.java:488)
+	at org.eclipse.e4.core.commands.internal.HandlerServiceImpl.executeHandler(HandlerServiceImpl.java:210)
+	at org.eclipse.ui.internal.handlers.LegacyHandlerService.executeCommand(LegacyHandlerService.java:353)
+	at net.sourceforge.vrapper.eclipse.commands.EclipseCommand.executeAction(EclipseCommand.java:79)
+	at net.sourceforge.vrapper.eclipse.commands.EclipseCommand.doIt(EclipseCommand.java:67)
+	at net.sourceforge.vrapper.eclipse.commands.EclipseCommand.execute(EclipseCommand.java:32)
+	at net.sourceforge.vrapper.vim.commands.CommandWrappers$1.execute(CommandWrappers.java:23)
+	at net.sourceforge.vrapper.vim.modes.CommandBasedMode.executeCommand(CommandBasedMode.java:262)
+	at net.sourceforge.vrapper.vim.modes.CommandBasedMode.handleKey(CommandBasedMode.java:316)
+	at net.sourceforge.vrapper.vim.DefaultEditorAdaptor.handleKey0(DefaultEditorAdaptor.java:799)
+	at net.sourceforge.vrapper.vim.DefaultEditorAdaptor.handleKeyOffRecord(DefaultEditorAdaptor.java:460)
+	at net.sourceforge.vrapper.vim.DefaultEditorAdaptor.handleKey(DefaultEditorAdaptor.java:435)
+	at net.sourceforge.vrapper.eclipse.interceptor.VimInputInterceptorFactory$VimInputInterceptor.verifyKey(VimInputInterceptorFactory.java:290)
+	at org.eclipse.jface.text.TextViewer$VerifyKeyListenersManager.verifyKey(TextViewer.java:485)
+	at org.eclipse.swt.custom.StyledTextListener.handleEvent(StyledTextListener.java:66)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4410)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1079)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1103)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1088)
+	at org.eclipse.swt.widgets.Widget.notifyListeners(Widget.java:802)
+	at org.eclipse.swt.custom.StyledText.handleKeyDown(StyledText.java:6044)
+	at org.eclipse.swt.custom.StyledText$7.handleEvent(StyledText.java:5733)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4410)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1079)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1103)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1088)
+	at org.eclipse.swt.widgets.Widget.sendKeyEvent(Widget.java:1130)
+	at org.eclipse.swt.widgets.Widget.sendKeyEvent(Widget.java:1126)
+	at org.eclipse.swt.widgets.Widget.wmChar(Widget.java:1547)
+	at org.eclipse.swt.widgets.Control.WM_CHAR(Control.java:4910)
+	at org.eclipse.swt.widgets.Canvas.WM_CHAR(Canvas.java:364)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4791)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:359)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5102)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessageW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessage(OS.java:2552)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3814)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$4.run(PartRenderingEngine.java:1121)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1022)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:150)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:687)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:604)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:148)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:138)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:388)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:243)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:673)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:610)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1519)
+
+!ENTRY net.sourceforge.vrapper.eclipse 4 0 2016-08-30 17:21:35.555
+!MESSAGE Command not handled: org.eclipse.ui.navigate.forwardHistory
+!STACK 0
+org.eclipse.core.commands.NotEnabledException: Trying to execute the disabled command org.eclipse.ui.navigate.forwardHistory
+	at org.eclipse.core.commands.Command.executeWithChecks(Command.java:485)
+	at org.eclipse.core.commands.ParameterizedCommand.executeWithChecks(ParameterizedCommand.java:488)
+	at org.eclipse.e4.core.commands.internal.HandlerServiceImpl.executeHandler(HandlerServiceImpl.java:210)
+	at org.eclipse.ui.internal.handlers.LegacyHandlerService.executeCommand(LegacyHandlerService.java:353)
+	at net.sourceforge.vrapper.eclipse.commands.EclipseCommand.executeAction(EclipseCommand.java:79)
+	at net.sourceforge.vrapper.eclipse.commands.EclipseCommand.doIt(EclipseCommand.java:67)
+	at net.sourceforge.vrapper.eclipse.commands.EclipseCommand.execute(EclipseCommand.java:32)
+	at net.sourceforge.vrapper.vim.commands.CommandWrappers$1.execute(CommandWrappers.java:23)
+	at net.sourceforge.vrapper.vim.modes.CommandBasedMode.executeCommand(CommandBasedMode.java:262)
+	at net.sourceforge.vrapper.vim.modes.CommandBasedMode.handleKey(CommandBasedMode.java:316)
+	at net.sourceforge.vrapper.vim.DefaultEditorAdaptor.handleKey0(DefaultEditorAdaptor.java:799)
+	at net.sourceforge.vrapper.vim.DefaultEditorAdaptor.handleKeyOffRecord(DefaultEditorAdaptor.java:460)
+	at net.sourceforge.vrapper.vim.DefaultEditorAdaptor.handleKey(DefaultEditorAdaptor.java:435)
+	at net.sourceforge.vrapper.eclipse.interceptor.VimInputInterceptorFactory$VimInputInterceptor.verifyKey(VimInputInterceptorFactory.java:290)
+	at org.eclipse.jface.text.TextViewer$VerifyKeyListenersManager.verifyKey(TextViewer.java:485)
+	at org.eclipse.swt.custom.StyledTextListener.handleEvent(StyledTextListener.java:66)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4410)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1079)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1103)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1088)
+	at org.eclipse.swt.widgets.Widget.notifyListeners(Widget.java:802)
+	at org.eclipse.swt.custom.StyledText.handleKeyDown(StyledText.java:6044)
+	at org.eclipse.swt.custom.StyledText$7.handleEvent(StyledText.java:5733)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4410)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1079)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1103)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1088)
+	at org.eclipse.swt.widgets.Widget.sendKeyEvent(Widget.java:1130)
+	at org.eclipse.swt.widgets.Widget.sendKeyEvent(Widget.java:1126)
+	at org.eclipse.swt.widgets.Widget.wmChar(Widget.java:1547)
+	at org.eclipse.swt.widgets.Control.WM_CHAR(Control.java:4910)
+	at org.eclipse.swt.widgets.Canvas.WM_CHAR(Canvas.java:364)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4791)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:359)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5102)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessageW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessage(OS.java:2552)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3814)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$4.run(PartRenderingEngine.java:1121)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1022)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:150)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:687)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:604)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:148)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:138)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:388)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:243)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:673)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:610)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1519)
+
+!ENTRY net.sourceforge.vrapper.eclipse 4 0 2016-08-30 18:09:55.907
+!MESSAGE Command not handled: org.eclipse.ui.navigate.forwardHistory
+!STACK 0
+org.eclipse.core.commands.NotEnabledException: Trying to execute the disabled command org.eclipse.ui.navigate.forwardHistory
+	at org.eclipse.core.commands.Command.executeWithChecks(Command.java:485)
+	at org.eclipse.core.commands.ParameterizedCommand.executeWithChecks(ParameterizedCommand.java:488)
+	at org.eclipse.e4.core.commands.internal.HandlerServiceImpl.executeHandler(HandlerServiceImpl.java:210)
+	at org.eclipse.ui.internal.handlers.LegacyHandlerService.executeCommand(LegacyHandlerService.java:353)
+	at net.sourceforge.vrapper.eclipse.commands.EclipseCommand.executeAction(EclipseCommand.java:79)
+	at net.sourceforge.vrapper.eclipse.commands.EclipseCommand.doIt(EclipseCommand.java:67)
+	at net.sourceforge.vrapper.eclipse.commands.EclipseCommand.execute(EclipseCommand.java:32)
+	at net.sourceforge.vrapper.vim.commands.CommandWrappers$1.execute(CommandWrappers.java:23)
+	at net.sourceforge.vrapper.vim.modes.CommandBasedMode.executeCommand(CommandBasedMode.java:262)
+	at net.sourceforge.vrapper.vim.modes.CommandBasedMode.handleKey(CommandBasedMode.java:316)
+	at net.sourceforge.vrapper.vim.DefaultEditorAdaptor.handleKey0(DefaultEditorAdaptor.java:799)
+	at net.sourceforge.vrapper.vim.DefaultEditorAdaptor.handleKeyOffRecord(DefaultEditorAdaptor.java:460)
+	at net.sourceforge.vrapper.vim.DefaultEditorAdaptor.handleKey(DefaultEditorAdaptor.java:435)
+	at net.sourceforge.vrapper.eclipse.interceptor.VimInputInterceptorFactory$VimInputInterceptor.verifyKey(VimInputInterceptorFactory.java:290)
+	at org.eclipse.jface.text.TextViewer$VerifyKeyListenersManager.verifyKey(TextViewer.java:485)
+	at org.eclipse.swt.custom.StyledTextListener.handleEvent(StyledTextListener.java:66)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4410)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1079)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1103)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1088)
+	at org.eclipse.swt.widgets.Widget.notifyListeners(Widget.java:802)
+	at org.eclipse.swt.custom.StyledText.handleKeyDown(StyledText.java:6044)
+	at org.eclipse.swt.custom.StyledText$7.handleEvent(StyledText.java:5733)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4410)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1079)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1103)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1088)
+	at org.eclipse.swt.widgets.Widget.sendKeyEvent(Widget.java:1130)
+	at org.eclipse.swt.widgets.Widget.sendKeyEvent(Widget.java:1126)
+	at org.eclipse.swt.widgets.Widget.wmChar(Widget.java:1547)
+	at org.eclipse.swt.widgets.Control.WM_CHAR(Control.java:4910)
+	at org.eclipse.swt.widgets.Canvas.WM_CHAR(Canvas.java:364)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4791)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:359)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5102)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessageW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessage(OS.java:2552)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3814)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$4.run(PartRenderingEngine.java:1121)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1022)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:150)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:687)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:604)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:148)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:138)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:388)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:243)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:673)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:610)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1519)

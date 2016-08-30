@@ -6,10 +6,24 @@ package foodnetwork.serialization;
  *
  */
 public class FoodItem {
+	
+	String name;
+	MealType type;
+	long calories;
+	String fat;
 	/**
 	 * @param in
 	 */
 	public FoodItem(MessageInput in) {
+		try {
+			name = in.readName();
+			type = in.readType();
+			calories = in.readCal();
+			fat = in.readFat();
+		} catch (FoodNetworkException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 	
@@ -21,48 +35,77 @@ public class FoodItem {
 	 */
 	public FoodItem(String name, MealType mealType, long calories, String fat){
 		
+		this.name = name;
+		this.type = mealType;
+		this.calories = calories;
+		this.fat = fat;
 	}
 	
 	/**
 	 * @param out
 	 */
 	public void encode(MessageOutput out){
-		
+		out.writeName(name);
+		out.writeType(type);
+		out.writeCal(calories);
+		out.writeFat(fat);
 	}
 	
 	/* (non-Javadoc)
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	public boolean equals(Object obj){
-		return false;
+		Boolean ans = false;
+		
+		if ( this.name.equals(((FoodItem) obj).getName()) ) {
+			if ( this.fat.equals(((FoodItem) obj).getFat()) ) {
+				if ( this.calories == ((FoodItem) obj).getCalories() ) {
+					if ( this.type == ((FoodItem) obj).getMealType() ) {
+						ans = true;
+					}
+				}
+			}
+		}
+		/*
+		 * 
+		if ( this.name.equals(((FoodItem) obj).getName()) && this.fat.equals(((FoodItem) obj).getFat()) )
+				&& this.calories == ((FoodItem) obj).getCalories() && this.type == ((FoodItem) obj).getMealType() ) {
+						ans = true;
+					}
+				}
+			}
+		}
+		 */
+		
+		return ans;
 	}
 	
 	/**
 	 * @return
 	 */
 	public long getCalories(){
-		return 0;
+		return calories;
 	}
 	
 	/**
 	 * @return
 	 */
 	public String getFat(){
-		return "";
+		return fat;
 	}
 	
 	/**
 	 * @return
 	 */
 	public MealType getMealType(){
-		return null;
+		return type;
 	}
 	
 	/**
 	 * @return
 	 */
 	public String getName(){
-		return "";
+		return name;
 	}
 	
 	/* (non-Javadoc)
@@ -76,21 +119,21 @@ public class FoodItem {
 	 * @param fat
 	 */
 	public void setFat(String fat){
-		
+		this.fat = fat;
 	}
 	
 	/**
 	 * @param mealType
 	 */
 	public void setMealType(MealType mealType){
-		
+		this.type = mealType;
 	}
 	
 	/**
 	 * @param name
 	 */
 	public void setName(String name){
-		
+		this.name = name;
 	}
 	
 	/* (non-Javadoc)
@@ -99,7 +142,4 @@ public class FoodItem {
 	public String toString(){
 		return "";
 	}
-	
-	
-	
 }

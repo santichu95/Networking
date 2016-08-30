@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="FoodItemTest" project="FoodItem" tests="9" started="9" failures="0" errors="0" ignored="0">
+  <testsuite name="foodnetwork.serialization.FoodItemTest" time="0.0">
+    <testcase name="testGetMealTypeBreakfast" classname="foodnetwork.serialization.FoodItemTest" time="0.0"/>
+    <testcase name="testGetMealTypeCodeDinner" classname="foodnetwork.serialization.FoodItemTest" time="0.0"/>
+    <testcase name="testGetMealTypeLunch" classname="foodnetwork.serialization.FoodItemTest" time="0.0"/>
+    <testcase name="testGetMealTypeSnack" classname="foodnetwork.serialization.FoodItemTest" time="0.0"/>
+    <testcase name="testReadInt" classname="foodnetwork.serialization.FoodItemTest" time="0.0"/>
+    <testcase name="testGetMealTypeCodeLunch" classname="foodnetwork.serialization.FoodItemTest" time="0.0"/>
+    <testcase name="testGetMealTypeCodeSnack" classname="foodnetwork.serialization.FoodItemTest" time="0.0"/>
+    <testcase name="testGetMealTypeDinner" classname="foodnetwork.serialization.FoodItemTest" time="0.0"/>
+    <testcase name="testGetMealTypeCodeBreakfast" classname="foodnetwork.serialization.FoodItemTest" time="0.0"/>
+  </testsuite>
+</testrun>
