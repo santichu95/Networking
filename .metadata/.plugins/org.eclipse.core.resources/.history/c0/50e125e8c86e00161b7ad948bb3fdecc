@@ -4,7 +4,6 @@ package foodnetwork.serialization;
  * @author Santiago Andaluz Ruiz
  *
  */
-@SuppressWarnings("serial")
 public class FoodNetworkException extends java.lang.Exception {
 	
 	/**Constructs food network exception with null cause

@@ -1,0 +1,27 @@
+package foodnetwork.serialization;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class MealTypeTest {
+	
+	MealType meal;
+	@Test
+	public void testGetMealTypeBreakfast() {
+		assertEquals(MealType.Breakfast, MealType.getMealType('B'));
+	}	
+	
+	public void testGetMealTypeLunch() {
+		assertEquals(MealType.Lunch, MealType.getMealType('L'));
+	}	
+	
+	public void testGetMealTypeDinner() {
+		assertEquals(MealType.Dinner, MealType.getMealType('D'));
+	}	
+	
+	public void testGetMealTypeSnack() {
+		assertEquals(MealType.Snack, MealType.getMealType('S'));
+	}
+
+}
