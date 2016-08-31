@@ -21,10 +21,9 @@ public class FoodItem {
 			calories = in.readCal();
 			fat = in.readFat();
 		} catch (FoodNetworkException e) {
-			// TODO Auto-generated catch block
+			System.err.println(e.getMessage());
 			e.printStackTrace();
 		}
-		
 	}
 	
 	/**
@@ -66,16 +65,6 @@ public class FoodItem {
 				}
 			}
 		}
-		/*
-		 * 
-		if ( this.name.equals(((FoodItem) obj).getName()) && this.fat.equals(((FoodItem) obj).getFat()) )
-				&& this.calories == ((FoodItem) obj).getCalories() && this.type == ((FoodItem) obj).getMealType() ) {
-						ans = true;
-					}
-				}
-			}
-		}
-		 */
 		
 		return ans;
 	}
