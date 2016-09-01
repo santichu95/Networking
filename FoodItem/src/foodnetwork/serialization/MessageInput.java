@@ -20,10 +20,10 @@ public class MessageInput {
 		input = in;
 	}
 
-	/**
+	/**Reads in the Name of the FoodItem
 	 * 
 	 * @return The name of the FoodItem
-	 * @throws FoodNetworkException 
+	 * @throws FoodNetworkException if expected more bytes than were given
 	 */
 	public String readName() throws FoodNetworkException {
 		int charCount;
@@ -48,9 +48,8 @@ public class MessageInput {
 	
 	/**
 	 * 
-	 * @return
-	 * @throws FoodNetworkException if 
-	 * @throws IOException
+	 * @return int that was read from InputStream
+	 * @throws FoodNetworkException if expected more bytes than were given
 	 */
 	public int readInt() throws FoodNetworkException {
 		int charCount;
@@ -76,6 +75,11 @@ public class MessageInput {
 		return charCount;
 	}
 
+	/**Reads the MealType from InputStream
+	 * 
+     * @return MealType MealType read in
+	 * @throws FoodNetworkException if expected more bytes than were given
+	 */
 	public MealType readType() throws FoodNetworkException {
 		byte[] temp = new byte[1];
 		String convert;
@@ -93,6 +97,11 @@ public class MessageInput {
 		return result;
 	}
 
+	/**Reads the calories from InputStream
+	 * 
+     * @return long calories
+	 * @throws FoodNetworkException if expected more bytes than were given
+	 */
 	public long readCal() throws FoodNetworkException {
 		
 		long cal;
@@ -117,10 +126,10 @@ public class MessageInput {
 		return cal;
 	}
 	
-	/** WRITE TEST CASE
+    /**Reads the grams of fat form InputStream
 	 * 
-	 * @return
-	 * @throws FoodNetworkException
+	 * @return grams of fat
+	 * @throws FoodNetworkException if more bytes were excpted than were recieved.
 	 */
 	public String readFat() throws FoodNetworkException {
 		int charCount;
