@@ -26,7 +26,7 @@ public enum MealType {
 	 * @return meal type corresponding to code
 	 * @throws FoodNetworkException if bad code value
 	 */
-	public static MealType getMealType(char code) throws FoodNetworkException{
+	public static MealType getMealType(char code){
 		MealType result = null;
 		switch(code) {
 		case 'B':
@@ -40,9 +40,6 @@ public enum MealType {
 			break;
 		case 'S':
 			result = Snack;
-			break;
-		default:
-			throw new FoodNetworkException("Bad code value");
 		}
 		return result;
 	}

@@ -27,7 +27,9 @@ public class MessageInput {
 	 */
 	public String readName() throws FoodNetworkException {
 		int charCount;
-		byte[] length;
+		byte[] length = new byte[1];
+		String tempInt = "";
+		boolean endInt = false;
 		String name;
 
 		try{
@@ -39,107 +41,44 @@ public class MessageInput {
 			
 			name = new String(length);
 		}catch(IOException e) {
-			FoodNetworkException err = new FoodNetworkException("Expected to get name of food");
+			FoodNetworkException err = new FoodNetworkException("Expected to get Character Count");
 			throw err;
 		}
+		
 		
 		return name;
 	}
 	
-	/**
-	 * 
-	 * @return
-	 * @throws FoodNetworkException if 
-	 * @throws IOException
-	 */
-	public int readInt() throws FoodNetworkException {
+	public int readInt() throws IOException{
 		int charCount;
 		byte[] length = new byte[1];
 		String tempInt = "";
 		boolean endInt = false;
-		
-		
-		try {
-			while(!endInt && 1 == input.read(length, 0, 1)) {
-				if ( length[0] <= '9' && length[0] >= '0' ) {
-					tempInt += ((char) length[0] );
-				}else {
-					endInt = true;
-				}
+
+		while(!endInt && 1 == input.read(length, 0, 1)) {
+			if ( length[0] <= '9' && length[0] >= '0' ) {
+				tempInt += ((char) length[0] );
+			}else {
+				endInt = true;
 			}
-		} catch (IOException e) {
-			FoodNetworkException err = new FoodNetworkException("Expected to get Character Count");
-			throw err;
 		}
 		
 		charCount = Integer.parseInt(tempInt);
 		return charCount;
 	}
 
-	public MealType readType() throws FoodNetworkException {
-		byte[] temp = new byte[1];
-		String convert;
-		MealType result;
-		
-		try {
-			input.read(temp, 0, temp.length);
-			convert = new String(temp);
-			result = MealType.getMealType(convert.charAt(0));
-		} catch (IOException e) {
-			FoodNetworkException err = new FoodNetworkException("Expected to get MealType Code");
-			throw err;
-		}
-		
-		return result;
+	public MealType readType() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
-	public long readCal() throws FoodNetworkException {
-		
-		long cal;
-		byte[] length = new byte[1];
-		String tempLong = "";
-		boolean endLong = false;
-		
-		try {
-			while(!endLong && 1 == input.read(length, 0, 1)) {
-				if ( length[0] <= '9' && length[0] >= '0' ) {
-					tempLong += ((char) length[0] );
-				}else {
-					endLong = true;
-				}
-			}
-		} catch (IOException e) {
-			FoodNetworkException err = new FoodNetworkException("Expected to get Character Count");
-			throw err;
-		}
-		
-		cal = Long.parseLong(tempLong);
-		return cal;
+	public long readCal() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
-	
-	/** WRITE TEST CASE
-	 * 
-	 * @return
-	 * @throws FoodNetworkException
-	 */
-	public String readFat() throws FoodNetworkException {
-		int charCount;
-		byte[] length = new byte[1];
-		String fat = "";
-		boolean endInt = false;
-		
-		try {
-			while(!endInt && 1 == input.read(length, 0, 1)) {
-				if ( ( length[0] <= 'z' && length[0] >= 'a' ) || ( length[0] <= 'Z' && length[0] >= 'A' ) ) {
-					fat += ((char) length[0] );
-				}else {
-					endInt = true;
-				}
-			}
-		} catch (IOException e) {
-			FoodNetworkException err = new FoodNetworkException("Expected to get Character Count");
-			throw err;
-		}
-		return fat;
+
+	public String readFat() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

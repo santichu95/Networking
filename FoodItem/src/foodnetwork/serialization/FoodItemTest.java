@@ -1,4 +1,4 @@
-package foodnetwork.serialization.test;
+package foodnetwork.serialization;
 
 import static org.junit.Assert.*;
 
@@ -9,40 +9,14 @@ import java.io.IOException;
 
 import org.junit.Test;
 
-import foodnetwork.serialization.FoodNetworkException;
-import foodnetwork.serialization.MealType;
-import foodnetwork.serialization.MessageInput;
-
 public class FoodItemTest {
 
 	MealType meal;
-	
 	@Test
-	public void testReadFat() throws FoodNetworkException {
-		
-	}
-	
-	
-	@Test
-	public void testReadMealType() throws FoodNetworkException {
-		FileInputStream in;
-		
-		try {
-			in = new FileInputStream(new File("breakfast"));
-			MessageInput test = new MessageInput(in);
-			test.readName();
-			assertEquals(MealType.Breakfast, test.readType());
-		} catch (FileNotFoundException e) {
-			System.err.println("File Not Found");
-			e.printStackTrace();
-		}
-	}
-	
-	@Test
-	public void testReadInt() throws FoodNetworkException {
+	public void testReadInt() throws IOException {
 		FileInputStream in;
 		try {
-			in = new FileInputStream(new File("breakfast"));
+			in = new FileInputStream(new File("data"));
 			MessageInput test = new MessageInput(in);
 			assertEquals(4,test.readInt());
 		} catch (FileNotFoundException e) {
@@ -54,7 +28,7 @@ public class FoodItemTest {
 	@Test
 	public void testReadName() throws FoodNetworkException{
 		try {
-			FileInputStream in = new FileInputStream(new File("breakfast"));
+			FileInputStream in = new FileInputStream(new File("data"));
 			MessageInput test = new MessageInput(in);
 			assertEquals("plum",test.readName());
 		} catch (FileNotFoundException e) {
@@ -62,29 +36,24 @@ public class FoodItemTest {
 			e.printStackTrace();
 		}
 	}
-	
-	@Test(expected=FoodNetworkException.class)
-	public void testGetMealTypeException() throws FoodNetworkException {
-		MealType.getMealType('A');
-	}
 
 	@Test
-	public void testGetMealTypeBreakfast() throws FoodNetworkException {
+	public void testGetMealTypeBreakfast() {
 		assertEquals(MealType.Breakfast, MealType.getMealType('B'));
 	}	
 	
 	@Test
-	public void testGetMealTypeLunch() throws FoodNetworkException {
+	public void testGetMealTypeLunch() {
 		assertEquals(MealType.Lunch, MealType.getMealType('L'));
 	}	
 	
 	@Test
-	public void testGetMealTypeDinner() throws FoodNetworkException {
+	public void testGetMealTypeDinner() {
 		assertEquals(MealType.Dinner, MealType.getMealType('D'));
 	}	
 	
 	@Test
-	public void testGetMealTypeSnack() throws FoodNetworkException {
+	public void testGetMealTypeSnack() {
 		assertEquals(MealType.Snack, MealType.getMealType('S'));
 	}
 
