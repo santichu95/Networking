@@ -27,19 +27,10 @@ public class MessageOutput {
 		this.out = out;
 	}
 
-	/**Writes name to OutputStream
-	 * 
-	 * @param name name 
-	 * @throws IOException
-	 */
 	public void writeName(String name) throws IOException {
 		out.write(name.getBytes());		
 	}
 
-	/**Writes calories to OutputStream
-	 * @param calories calories
-	 * @throws IOException
-	 */
 	public void writeCal(long calories) throws IOException {
 	    ByteBuffer buf = ByteBuffer.allocate(Long.BYTES);
 		buf.putLong(calories);
@@ -47,19 +38,12 @@ public class MessageOutput {
 		
 	}
 
-	/**Writes meal type to OutputStream
-	 * @param type meal type
-	 * @throws IOException
-	 */
-	public void writeType(MealType type) throws IOException {
-		out.write(((Character) type.getMealTypeCode()).toString().getBytes());
+	public void writeType(MealType type) {
+		B
+		
 	}
 
-	/**Writes Fat to OutputStream
-	 * @param fat grams of fat
-	 * @throws IOException
-	 */
-	public void writeFat(String fat) throws IOException {
+	public void writeFat(String fat) {
 		out.write(fat.getBytes());	
 	}
 }

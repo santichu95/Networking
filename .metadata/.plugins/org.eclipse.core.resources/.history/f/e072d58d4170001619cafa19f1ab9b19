@@ -7,8 +7,6 @@
 ************************************************/
 package foodnetwork.serialization;
 
-import java.io.IOException;
-
 /** Represents FoodItem and provides serialization/deserialization
  * 
  * @author Santiago Andaluz Ruiz
@@ -55,15 +53,10 @@ public class FoodItem {
 	 * @param out serialization output destination
 	 */
 	public void encode(MessageOutput out){
-		try {
-			out.writeName(name);
-			out.writeType(type);
-			out.writeCal(calories);
-			out.writeFat(fat);} 
-		catch (IOException e) {
-			System.err.println("Incorrect data");
-			e.printStackTrace();
-		}
+		out.writeName(name);
+		out.writeType(type);
+		out.writeCal(calories);
+		out.writeFat(fat);
 	}
 	
 	/* (non-Javadoc)

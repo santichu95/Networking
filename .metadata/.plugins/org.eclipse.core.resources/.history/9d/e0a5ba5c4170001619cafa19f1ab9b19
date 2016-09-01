@@ -29,7 +29,7 @@ public class MessageOutput {
 
 	/**Writes name to OutputStream
 	 * 
-	 * @param name name 
+	 * @param name
 	 * @throws IOException
 	 */
 	public void writeName(String name) throws IOException {
@@ -37,7 +37,7 @@ public class MessageOutput {
 	}
 
 	/**Writes calories to OutputStream
-	 * @param calories calories
+	 * @param calories
 	 * @throws IOException
 	 */
 	public void writeCal(long calories) throws IOException {
@@ -48,7 +48,7 @@ public class MessageOutput {
 	}
 
 	/**Writes meal type to OutputStream
-	 * @param type meal type
+	 * @param type
 	 * @throws IOException
 	 */
 	public void writeType(MealType type) throws IOException {
@@ -56,7 +56,7 @@ public class MessageOutput {
 	}
 
 	/**Writes Fat to OutputStream
-	 * @param fat grams of fat
+	 * @param fat
 	 * @throws IOException
 	 */
 	public void writeFat(String fat) throws IOException {

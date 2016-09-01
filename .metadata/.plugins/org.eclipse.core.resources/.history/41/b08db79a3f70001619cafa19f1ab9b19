@@ -1,13 +1,4 @@
-/************************************************
-*
-* Author: Santiago Andaluz Ruiz
-* Assignment: Program 0: Fatbat
-* Class: CSI 4321 Data Comm
-*
-************************************************/
 package foodnetwork.serialization;
-
-import java.io.IOException;
 
 /** Represents FoodItem and provides serialization/deserialization
  * 
@@ -20,12 +11,10 @@ public class FoodItem {
 	MealType type;
 	long calories;
 	String fat;
-	
 	/**
-	 * @param in deserialization of input source
-	 * @throws FoodNetworkException if deserialization of validation failure
+	 * @param in
 	 */
-	public FoodItem(MessageInput in) throws FoodNetworkException {
+	public FoodItem(MessageInput in) {
 		try {
 			name = in.readName();
 			type = in.readType();
@@ -37,11 +26,11 @@ public class FoodItem {
 		}
 	}
 	
-	/**Constructs food item with set values
-	 * @param name name of food item
-	 * @param mealType type of meal
-	 * @param calories number of calories in food item
-	 * @param fat grams of fat in food item
+	/**
+	 * @param name
+	 * @param mealType
+	 * @param calories
+	 * @param fat
 	 */
 	public FoodItem(String name, MealType mealType, long calories, String fat){
 		
@@ -51,19 +40,14 @@ public class FoodItem {
 		this.fat = fat;
 	}
 	
-	/** Serializes food item
-	 * @param out serialization output destination
+	/**
+	 * @param out
 	 */
 	public void encode(MessageOutput out){
-		try {
-			out.writeName(name);
-			out.writeType(type);
-			out.writeCal(calories);
-			out.writeFat(fat);} 
-		catch (IOException e) {
-			System.err.println("Incorrect data");
-			e.printStackTrace();
-		}
+		out.writeName(name);
+		out.writeType(type);
+		out.writeCal(calories);
+		out.writeFat(fat);
 	}
 	
 	/* (non-Javadoc)
@@ -85,29 +69,29 @@ public class FoodItem {
 		return ans;
 	}
 	
-	/** calories
-	 * @return calories
+	/**
+	 * @return
 	 */
 	public long getCalories(){
 		return calories;
 	}
 	
-	/** Returns grams of fat
-	 * @return grams of fat
+	/**
+	 * @return
 	 */
 	public String getFat(){
 		return fat;
 	}
 	
-	/**Returns meal type
-	 * @return meal type
+	/**
+	 * @return
 	 */
 	public MealType getMealType(){
 		return type;
 	}
 	
-	/**Returns name
-	 * @return name
+	/**
+	 * @return
 	 */
 	public String getName(){
 		return name;
@@ -117,25 +101,25 @@ public class FoodItem {
 	 * @see java.lang.Object#hashCode()
 	 */
 	public int hashCode(){
-		return super.hashCode();
+		return 0;
 	}
 	
-	/**Sets fat
-	 * @param fat new grams of fat
+	/**
+	 * @param fat
 	 */
 	public void setFat(String fat){
 		this.fat = fat;
 	}
 	
-	/**Sets meal type
-	 * @param mealType new meal type
+	/**
+	 * @param mealType
 	 */
 	public void setMealType(MealType mealType){
 		this.type = mealType;
 	}
 	
-	/**Sets name
-	 * @param name new name
+	/**
+	 * @param name
 	 */
 	public void setName(String name){
 		this.name = name;
@@ -145,7 +129,6 @@ public class FoodItem {
 	 * @see java.lang.Object#toString()
 	 */
 	public String toString(){
-		return name + "Meal: " + type.getMealTypeCode() + " Calories: " + calories +
-				" Grams of fat: " + fat;
+		return "";
 	}
 }

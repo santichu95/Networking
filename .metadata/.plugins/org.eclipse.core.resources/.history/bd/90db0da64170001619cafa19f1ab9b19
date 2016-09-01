@@ -53,15 +53,16 @@ public class FoodItem {
 	
 	/** Serializes food item
 	 * @param out serialization output destination
+	 * @throws EOFException if premature end of stream
 	 */
-	public void encode(MessageOutput out){
+	public void encode(MessageOutput out) throws java.io.EOFException{
 		try {
 			out.writeName(name);
-			out.writeType(type);
-			out.writeCal(calories);
-			out.writeFat(fat);} 
-		catch (IOException e) {
-			System.err.println("Incorrect data");
+		
+		out.writeType(type);
+		out.writeCal(calories);
+		out.writeFat(fat);} catch (IOException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
