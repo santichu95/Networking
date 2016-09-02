@@ -1,0 +1,163 @@
+/************************************************
+*
+* Author: Santiago Andaluz Ruiz
+* Assignment: Program 0: Fatbat
+* Class: CSI 4321 Data Comm
+*
+************************************************/
+package foodnetwork.serialization.test;
+
+import static org.junit.Assert.*;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.PipedInputStream;
+import java.io.PipedOutputStream;
+
+import org.junit.Test;
+
+import foodnetwork.serialization.FoodItem;
+import foodnetwork.serialization.FoodNetworkException;
+import foodnetwork.serialization.MealType;
+import foodnetwork.serialization.MessageInput;
+import foodnetwork.serialization.MessageOutput;
+
+public class FoodItemTest {
+
+	MealType meal;
+	MessageInput testIn;
+	MessageOutput testOut;
+	FileInputStream in;
+	FoodItem foodOne, foodTwo;
+	@Test 
+	public void testWriteName() throws IOException {
+		PipedInputStream in = new PipedInputStream();
+		PipedOutputStream out = new PipedOutputStream(in);
+		
+		testOut = new MessageOutput(out);
+		
+		testOut.writeName("plum");
+
+		out.close();
+		
+		byte[] buffer = new byte[1];
+		String temp = "";
+		boolean endLoop = false;
+		
+		while(!endLoop && 1 == in.read(buffer, 0, 1)) {
+			if ( (( buffer[0] <= 'z' && buffer[0] >= 'a') || ( buffer[0] <= 'Z' && buffer[0] >= 'A') ) ) {
+				temp += ((char) buffer[0] );
+			}else {
+				endLoop = true;
+			}
+		}
+		
+		assertEquals("plum", temp );
+		
+		in.close();
+		
+	}
+	@Test
+	public void testReadEntireFoodItem() throws FoodNetworkException, FileNotFoundException {
+		in = new FileInputStream(new File("breakfast"));
+		testIn = new MessageInput(in);
+		
+		foodOne = new FoodItem(testIn);
+		foodTwo = new FoodItem("plum", MealType.Breakfast, 50, "3.8");
+		
+
+		/* Version One */
+		assertEquals(foodTwo, foodOne);
+
+		/* Version Two */
+		assertEquals("plum", foodOne.getName());
+		assertEquals(MealType.Breakfast, foodOne.getMealType());
+		assertEquals(50L, foodOne.getCalories());
+		assertEquals("3.8", foodOne.getFat());
+	}
+	
+	@Test
+	public void testReadFat() throws FoodNetworkException, FileNotFoundException {
+		in = new FileInputStream(new File("fat"));
+		testIn = new MessageInput(in);
+		assertEquals("3.8",testIn.readFat());
+	}
+	
+	
+	@Test
+	public void testReadMealType() throws FoodNetworkException, FileNotFoundException {
+		in = new FileInputStream(new File("type"));
+		testIn = new MessageInput(in);
+		assertEquals(MealType.Breakfast, testIn.readType());
+	}
+	
+	@Test
+	public void testReadInt() throws FoodNetworkException, FileNotFoundException {
+			in = new FileInputStream(new File("breakfast"));
+			testIn = new MessageInput(in);
+			assertEquals(4,testIn.readInt());
+	}
+
+	@Test
+	public void testReadName() throws FoodNetworkException, FileNotFoundException{
+		in = new FileInputStream(new File("breakfast"));
+		testIn = new MessageInput(in);
+		assertEquals("plum",testIn.readName());
+	}
+	
+	@Test(expected=FoodNetworkException.class)
+	public void testGetMealTypeException() throws FoodNetworkException {
+		MealType.getMealType('A');
+	}
+
+	@Test
+	public void testGetMealTypeBreakfast() throws FoodNetworkException {
+		assertEquals(MealType.Breakfast, MealType.getMealType('B'));
+	}	
+	
+	@Test
+	public void testGetMealTypeLunch() throws FoodNetworkException {
+		assertEquals(MealType.Lunch, MealType.getMealType('L'));
+	}	
+	
+	@Test
+	public void testGetMealTypeDinner() throws FoodNetworkException {
+		assertEquals(MealType.Dinner, MealType.getMealType('D'));
+	}	
+	
+	@Test
+	public void testGetMealTypeSnack() throws FoodNetworkException {
+		assertEquals(MealType.Snack, MealType.getMealType('S'));
+	}
+
+	@Test
+	public void testGetMealTypeCodeBreakfast() {
+		meal = MealType.Breakfast;
+		
+		assertEquals('B', meal.getMealTypeCode());
+	}
+	
+	@Test
+	public void testGetMealTypeCodeLunch() {
+		meal = MealType.Lunch;
+		
+		assertEquals('L', meal.getMealTypeCode());
+	}
+	
+	@Test
+	public void testGetMealTypeCodeDinner() {
+		meal = MealType.Dinner;
+		
+		assertEquals('D', meal.getMealTypeCode());
+	}
+	
+	@Test
+	public void testGetMealTypeCodeSnack() {
+		meal = MealType.Snack;
+		
+		assertEquals('S', meal.getMealTypeCode());
+	}
+
+}

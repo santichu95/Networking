@@ -2,4 +2,9 @@
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="java.nio.ByteBuffer"/>
 <fullyQualifiedTypeName name="java.io.IOException"/>
+<fullyQualifiedTypeName name="foodnetwork.serialization.FoodItem"/>
+<fullyQualifiedTypeName name="foodnetwork.serialization.MealType"/>
+<fullyQualifiedTypeName name="java.io.PipedInputStream"/>
+<fullyQualifiedTypeName name="java.io.PipedOutputStream"/>
+<fullyQualifiedTypeName name="foodnetwork.serialization.MessageOutput"/>
 </qualifiedTypeNameHistroy>
