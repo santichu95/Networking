@@ -34,7 +34,7 @@ public class MessageOutput {
      * 
      * @param name
      *            name
-     * @throws IOException
+     * @throws IOException some I/O error occurs
      */
     public void writeName(String name) throws IOException {
         out.write(name.getBytes());
@@ -45,7 +45,7 @@ public class MessageOutput {
      * 
      * @param calories
      *            calories
-     * @throws IOException
+     * @throws IOException some I/O error occurs
      */
     public void writeCal(long calories) throws IOException {
         out.write(((Long) calories).toString().getBytes());
@@ -56,7 +56,7 @@ public class MessageOutput {
      * 
      * @param type
      *            meal type
-     * @throws IOException
+     * @throws IOException some I/O error occurs
      */
     public void writeType(MealType type) throws IOException {
         out.write(((Character) type.getMealTypeCode()).toString().getBytes());
@@ -67,7 +67,7 @@ public class MessageOutput {
      * 
      * @param fat
      *            grams of fat
-     * @throws IOException
+     * @throws IOException some I/O error occurs
      */
     public void writeFat(String fat) throws IOException {
         out.write(fat.getBytes());

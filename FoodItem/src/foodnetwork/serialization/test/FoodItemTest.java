@@ -547,8 +547,13 @@ public class FoodItemTest {
 
     @Test
     public void testReadEntireFoodItem() throws FoodNetworkException, IOException {
-        in = new FileInputStream(new File("breakfast"));
-        testIn = new MessageInput(in);
+        inPipe = new PipedInputStream();
+        outPipe = new PipedOutputStream(inPipe);
+        
+        outPipe.write("4 plumB50 3.8 ".getBytes());
+        outPipe.close();
+
+        testIn = new MessageInput(inPipe);
 
         foodOne = new FoodItem(testIn);
 
@@ -557,34 +562,49 @@ public class FoodItemTest {
         assertEquals(MealType.Breakfast, foodOne.getMealType());
         assertEquals(50L, foodOne.getCalories());
         assertEquals("3.8", foodOne.getFat());
+        
+        inPipe.close();
     }
 
     @Test
     public void testReadFat() throws FoodNetworkException, IOException {
-        in = new FileInputStream(new File("fat"));
-        testIn = new MessageInput(in);
-        assertEquals("3.8", testIn.readFat());
-    }
+        inPipe = new PipedInputStream();
+        outPipe = new PipedOutputStream(inPipe);
+        
+        outPipe.write("3.8 ".getBytes());
+        outPipe.close();
 
-    @Test
-    public void testReadMealType() throws FoodNetworkException, IOException {
-        in = new FileInputStream(new File("type"));
-        testIn = new MessageInput(in);
-        assertEquals(MealType.Breakfast, testIn.readType());
+        testIn = new MessageInput(inPipe);
+        assertEquals("3.8", testIn.readFat());
+        inPipe.close();
     }
 
     @Test
     public void testReadInt() throws FoodNetworkException, IOException {
-        in = new FileInputStream(new File("breakfast"));
-        testIn = new MessageInput(in);
+        inPipe = new PipedInputStream();
+        outPipe = new PipedOutputStream(inPipe);
+        
+        outPipe.write("4 ".getBytes());
+        outPipe.close();
+
+        testIn = new MessageInput(inPipe);
         assertEquals(4, testIn.readInt());
+        
+        inPipe.close();
     }
 
     @Test
     public void testReadName() throws FoodNetworkException, IOException {
-        in = new FileInputStream(new File("breakfast"));
-        testIn = new MessageInput(in);
+        inPipe = new PipedInputStream();
+        outPipe = new PipedOutputStream(inPipe);
+        
+        outPipe.write("4 plum".getBytes());
+        outPipe.close();
+
+        testIn = new MessageInput(inPipe);
         assertEquals("plum", testIn.readName());
+        
+       inPipe.close(); 
     }
 
     @Test(expected = FoodNetworkException.class)
