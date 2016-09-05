@@ -10,7 +10,7 @@ package foodnetwork.serialization;
 /**
  * Meal Type
  * 
- * @author Santiago Andaluz
+ * @author Santiago Andaluz Ruiz
  *
  */
 public enum MealType {

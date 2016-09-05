@@ -41,7 +41,6 @@ public class MessageInput {
      * @return The name of the FoodItem
      * @throws FoodNetworkException
      *             if expected more bytes than were given
-     * @throws IOException 
      */
     public String readName() throws FoodNetworkException, IOException {
         String name;
@@ -50,10 +49,15 @@ public class MessageInput {
         CharsetEncoder asciiEncoder = Charset.forName("US-ASCII").newEncoder();
 
         charCount = this.readInt();
+        int countRead;
 
         buffer = new byte[charCount];
 
-        input.read(buffer, 0, charCount);
+        countRead = input.read(buffer, 0, charCount);
+        
+        if(countRead != charCount){
+            throw new EOFException("Expected more input");
+        }
 
         name = new String(buffer);
         
@@ -71,14 +75,14 @@ public class MessageInput {
      * @return int that was read from InputStream
      * @throws FoodNetworkException Did not get correct input
      */
-    public int readInt() throws FoodNetworkException, IOException {
+    public int readInt() throws EOFException, FoodNetworkException, IOException {
         buffer = new byte[charSize];
         String tempInt = "";
         boolean endInt = false;
 
         while (!endInt && 1 == input.read(buffer, 0, charSize)) {
             if ( buffer[0] != ' ' ) {
-                if ( buffer[0] >= '9' || buffer[0] <= '0' ) {
+                if ( buffer[0] > '9' || buffer[0] < '0' ) {
                     throw new FoodNetworkException("Did not get a digit 0-9");
                 }
                 tempInt += ((char) buffer[0]);
@@ -102,19 +106,18 @@ public class MessageInput {
      * @throws FoodNetworkException
      *             if expected more bytes than were given
      */
-    public MealType readType() throws FoodNetworkException {
+    public MealType readType() throws FoodNetworkException, IOException {
         buffer = new byte[charSize];
         String convert;
         MealType result;
 
-        try {
-            input.read(buffer, 0, buffer.length);
-            convert = new String(buffer);
-            result = MealType.getMealType(convert.charAt(0));
-        } catch (IOException e) {
-            FoodNetworkException err = new FoodNetworkException("Expected to get MealType Code");
-            throw err;
+        int counter = input.read(buffer, 0, buffer.length);
+        if ( counter < 1 ) {
+           throw new EOFException("Expected more input"); 
         }
+
+        convert = new String(buffer);
+        result = MealType.getMealType(convert.charAt(0));
 
         return result;
     }
@@ -126,24 +129,26 @@ public class MessageInput {
      * @throws FoodNetworkException
      *             if expected more bytes than were given
      */
-    public long readCal() throws FoodNetworkException {
+    public long readCal() throws FoodNetworkException, IOException {
 
         long cal;
         buffer = new byte[charSize];
         String tempLong = "";
         boolean endLong = false;
 
-        try {
-            while (!endLong && 1 == input.read(buffer, 0, charSize)) {
-                if (buffer[0] <= '9' && buffer[0] >= '0') {
-                    tempLong += ((char) buffer[0]);
-                } else {
-                    endLong = true;
+        while (!endLong && 1 == input.read(buffer, 0, charSize)) {
+            if (buffer[0] != ' ') {
+                if (buffer[0] > '9' || buffer[0] < '0') {
+                    throw new FoodNetworkException("Invalid input for calorie");
                 }
+                tempLong += ((char) buffer[0]);
+            } else {
+                endLong = true;
             }
-        } catch (IOException e) {
-            FoodNetworkException err = new FoodNetworkException("Expected to get Character Count");
-            throw err;
+        }
+
+        if ( !endLong ) {
+            throw new EOFException("Expected more input");
         }
 
         cal = Long.parseLong(tempLong);
@@ -157,23 +162,27 @@ public class MessageInput {
      * @throws FoodNetworkException
      *             if more bytes were excpted than were recieved.
      */
-    public String readFat() throws FoodNetworkException {
+    public String readFat() throws FoodNetworkException, IOException {
         buffer = new byte[charSize];
         String fat = "";
         boolean endFat = false;
 
-        try {
-            while (!endFat && 1 == input.read(buffer, 0, charSize)) {
-                if (((buffer[0] <= '9' && buffer[0] >= '0') || buffer[0] == '.')) {
-                    fat += ((char) buffer[0]);
-                } else {
-                    endFat = true;
+        while (!endFat && 1 == input.read(buffer, 0, charSize)) {
+            if ( buffer[0] != ' ' ) {
+                if ( (buffer[0] > '9' && buffer[0] < '0' && buffer[0] != '.') ) {
+                    throw new FoodNetworkException("Invalid input for Fat");
                 }
+                fat += ((char) buffer[0]);
+            } else {
+                endFat = true;
             }
-        } catch (IOException e) {
-            FoodNetworkException err = new FoodNetworkException("Expected to get Character Count");
-            throw err;
         }
+        
+        
+        if ( !endFat ) {
+            throw new EOFException("Expected more input");
+        }
+        
         return fat;
     }
 }

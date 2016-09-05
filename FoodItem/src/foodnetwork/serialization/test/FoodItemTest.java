@@ -9,9 +9,9 @@ package foodnetwork.serialization.test;
 
 import static org.junit.Assert.*;
 
+import java.io.EOFException;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PipedInputStream;
 import java.io.PipedOutputStream;
@@ -34,14 +34,383 @@ public class FoodItemTest {
 
     PipedInputStream inPipe;
     PipedOutputStream outPipe;
+    
+    
+    @Test(expected = FoodNetworkException.class)
+    public void testReadCalException2() throws IOException, FoodNetworkException {
+        inPipe = new PipedInputStream();
+        outPipe = new PipedOutputStream(inPipe);
 
+        outPipe.write( "2.8".toString().getBytes() );
+        
+        outPipe.close();
+        
+        testIn = new MessageInput(inPipe);
+        
+        testIn.readCal();
+        
+        inPipe.close();
+    }
+    
+    
+    @Test(expected = EOFException.class)
+    public void testReadCalException1() throws IOException, FoodNetworkException {
+        inPipe = new PipedInputStream();
+        outPipe = new PipedOutputStream(inPipe);
+
+        outPipe.write( (((Long)1920L).toString()).getBytes() );
+        
+        outPipe.close();
+        
+        testIn = new MessageInput(inPipe);
+        
+        long result = testIn.readCal();
+        
+        assertEquals(1920L, result);
+        
+        inPipe.close();
+    }
+    
     @Test
-    public void testWriteType() {
+    public void testReadType5() throws IOException, FoodNetworkException {
+        inPipe = new PipedInputStream();
+        outPipe = new PipedOutputStream(inPipe);
 
+        outPipe.write("S".getBytes());
+        
+        outPipe.close();
+        
+        testIn = new MessageInput(inPipe);
+        
+        meal = testIn.readType();
+        
+        assertEquals(MealType.Snack, meal);
+        
+        inPipe.close();
+    }
+    
+    @Test
+    public void testReadType4() throws IOException, FoodNetworkException {
+        inPipe = new PipedInputStream();
+        outPipe = new PipedOutputStream(inPipe);
+
+        outPipe.write("D".getBytes());
+        
+        outPipe.close();
+        
+        testIn = new MessageInput(inPipe);
+        
+        meal = testIn.readType();
+        
+        assertEquals(MealType.Dinner, meal);
+        inPipe.close();
+    }
+    
+    @Test
+    public void testReadType3() throws IOException, FoodNetworkException {
+        inPipe = new PipedInputStream();
+        outPipe = new PipedOutputStream(inPipe);
+
+        outPipe.write("L".getBytes());
+        
+        outPipe.close();
+        
+        testIn = new MessageInput(inPipe);
+        
+        meal = testIn.readType();
+        
+        assertEquals(MealType.Lunch, meal);
+        inPipe.close();
+    }
+    
+    @Test
+    public void testReadType2() throws IOException, FoodNetworkException {
+        inPipe = new PipedInputStream();
+        outPipe = new PipedOutputStream(inPipe);
+
+        outPipe.write("B".getBytes());
+        
+        outPipe.close();
+        
+        testIn = new MessageInput(inPipe);
+        
+        meal = testIn.readType();
+        
+        assertEquals(MealType.Breakfast, meal);
+        inPipe.close();
+    }
+
+    @Test(expected = FoodNetworkException.class)
+    public void testReadTypeException6 () throws IOException, FoodNetworkException {
+        inPipe = new PipedInputStream();
+        outPipe = new PipedOutputStream(inPipe);
+
+        outPipe.write("A".getBytes());
+        
+        outPipe.close();
+        
+        testIn = new MessageInput(inPipe);
+        
+        testIn.readType();
+        inPipe.close();
+    }
+
+
+    @Test(expected = FoodNetworkException.class)
+    public void testReadTypeException5 () throws IOException, FoodNetworkException {
+        inPipe = new PipedInputStream();
+        outPipe = new PipedOutputStream(inPipe);
+
+        outPipe.write("s".getBytes());
+        
+        outPipe.close();
+        
+        testIn = new MessageInput(inPipe);
+        
+        testIn.readType();
+        inPipe.close();
+    }
+
+    @Test(expected = FoodNetworkException.class)
+    public void testReadTypeException4 () throws IOException, FoodNetworkException {
+        inPipe = new PipedInputStream();
+        outPipe = new PipedOutputStream(inPipe);
+
+        outPipe.write("d".getBytes());
+        
+        outPipe.close();
+        
+        testIn = new MessageInput(inPipe);
+        
+        testIn.readType();
+        inPipe.close();
+    }
+
+    @Test(expected = FoodNetworkException.class)
+    public void testReadTypeException3 () throws IOException, FoodNetworkException {
+        inPipe = new PipedInputStream();
+        outPipe = new PipedOutputStream(inPipe);
+
+        outPipe.write("l".getBytes());
+        
+        outPipe.close();
+        
+        testIn = new MessageInput(inPipe);
+        
+        testIn.readType();
+        inPipe.close();
+    }
+
+    @Test(expected = FoodNetworkException.class)
+    public void testReadTypeException2 () throws IOException, FoodNetworkException {
+        inPipe = new PipedInputStream();
+        outPipe = new PipedOutputStream(inPipe);
+
+        outPipe.write("b".getBytes());
+        
+        outPipe.close();
+        
+        testIn = new MessageInput(inPipe);
+        
+        testIn.readType();
+        inPipe.close();
+    }
+    
+
+    @Test(expected = EOFException.class)
+    public void testReadTypeException1 () throws IOException, FoodNetworkException {
+        inPipe = new PipedInputStream();
+        outPipe = new PipedOutputStream(inPipe);
+
+        outPipe.write("".getBytes());
+        
+        outPipe.close();
+        
+        testIn = new MessageInput(inPipe);
+        
+        testIn.readType();
+        inPipe.close();
+    }
+    
+
+    @Test(expected = FoodNetworkException.class)
+    public void testReadIntException2 () throws IOException, FoodNetworkException {
+        inPipe = new PipedInputStream();
+        outPipe = new PipedOutputStream(inPipe);
+
+        outPipe.write("0123456A789 ".getBytes());
+        
+        outPipe.close();
+        
+        testIn = new MessageInput(inPipe);
+        
+        testIn.readInt();
+        inPipe.close();
+    }
+    
+
+    @Test(expected = EOFException.class)
+    public void testReadIntException1 () throws IOException, FoodNetworkException {
+        inPipe = new PipedInputStream();
+        outPipe = new PipedOutputStream(inPipe);
+
+        outPipe.write("0123456789".getBytes());
+        
+        outPipe.close();
+        
+        testIn = new MessageInput(inPipe);
+        
+        testIn.readInt();
+        inPipe.close();
+    }
+    
+    @Test(expected = FoodNetworkException.class)
+    public void testReadNameException7() throws IOException, FoodNetworkException {
+        inPipe = new PipedInputStream();
+        outPipe = new PipedOutputStream(inPipe);
+        
+        outPipe.write("5 Plum®".getBytes());
+        
+        outPipe.close();
+        
+        testIn = new MessageInput(inPipe);
+        
+        testIn.readName();
+        inPipe.close();
+    }
+    
+    
+    @Test(expected = EOFException.class)
+    public void testReadNameException6() throws IOException, FoodNetworkException {
+        inPipe = new PipedInputStream();
+        outPipe = new PipedOutputStream(inPipe);
+        
+        outPipe.write("".getBytes());
+        
+        outPipe.close();
+        
+        testIn = new MessageInput(inPipe);
+        
+        testIn.readName();
+        inPipe.close();
+    }
+    
+    @Test(expected = EOFException.class)
+    public void testReadNameException5() throws IOException, FoodNetworkException {
+        inPipe = new PipedInputStream();
+        outPipe = new PipedOutputStream(inPipe);
+        
+        outPipe.write("4".getBytes());
+        
+        outPipe.close();
+        
+        testIn = new MessageInput(inPipe);
+        
+        testIn.readName();
+        inPipe.close();
+    }
+
+    @Test(expected = FoodNetworkException.class)
+    public void testReadNameException4() throws IOException, FoodNetworkException {
+        inPipe = new PipedInputStream();
+        outPipe = new PipedOutputStream(inPipe);
+        
+        outPipe.write("4a Plum".getBytes());
+        
+        outPipe.close();
+        
+        testIn = new MessageInput(inPipe);
+        
+        testIn.readName();
+        inPipe.close();
+    }
+
+    @Test(expected = FoodNetworkException.class)
+    public void testReadNameException3() throws IOException, FoodNetworkException {
+        inPipe = new PipedInputStream();
+        outPipe = new PipedOutputStream(inPipe);
+        
+        outPipe.write("4Plum".getBytes());
+        
+        outPipe.close();
+        
+        testIn = new MessageInput(inPipe);
+        
+        testIn.readName();
+        inPipe.close();
+    }
+
+    @Test(expected = FoodNetworkException.class)
+    public void testReadNameException2() throws IOException, FoodNetworkException {
+        inPipe = new PipedInputStream();
+        outPipe = new PipedOutputStream(inPipe);
+        
+        outPipe.write("A Plum".getBytes());
+        
+        outPipe.close();
+        
+        testIn = new MessageInput(inPipe);
+        
+        testIn.readName();
+        inPipe.close();
+    }
+
+    @Test(expected = EOFException.class)
+    public void testReadNameException1() throws IOException, EOFException, FoodNetworkException {
+        inPipe = new PipedInputStream();
+        outPipe = new PipedOutputStream(inPipe);
+        
+        outPipe.write("5 Plum".getBytes());
+        
+        outPipe.close();
+        
+        testIn = new MessageInput(inPipe);
+        
+        testIn.readName();
+        inPipe.close();
+        
     }
 
     @Test
-    public void testWriteFat() {
+    public void testWriteTypeBreakfast() throws IOException {
+        byte[] buffer = new byte[1];
+        inPipe = new PipedInputStream();
+        outPipe = new PipedOutputStream(inPipe);
+        
+        testOut = new MessageOutput(outPipe);
+        
+        testOut.writeType(MealType.Breakfast);
+        
+        outPipe.close();
+        
+        inPipe.read(buffer, 0, 1);
+
+        assertEquals( 'B', ((char) buffer[0] ));
+
+        inPipe.close();
+    }
+
+    @Test
+    public void testWriteFat() throws IOException {
+        
+        byte[] buffer;
+        inPipe = new PipedInputStream();
+        outPipe = new PipedOutputStream(inPipe);
+        
+        testOut = new MessageOutput(outPipe);
+        
+        testOut.writeFat("3.8");
+        
+        outPipe.close();
+
+        //Size of "3.8"
+        buffer = new byte[3];
+        
+        inPipe.read(buffer, 0, 3);
+        
+        assertEquals("3.8", new String(buffer) );
+        
+        inPipe.close();
 
     }
 
@@ -191,14 +560,14 @@ public class FoodItemTest {
     }
 
     @Test
-    public void testReadFat() throws FoodNetworkException, FileNotFoundException {
+    public void testReadFat() throws FoodNetworkException, IOException {
         in = new FileInputStream(new File("fat"));
         testIn = new MessageInput(in);
         assertEquals("3.8", testIn.readFat());
     }
 
     @Test
-    public void testReadMealType() throws FoodNetworkException, FileNotFoundException {
+    public void testReadMealType() throws FoodNetworkException, IOException {
         in = new FileInputStream(new File("type"));
         testIn = new MessageInput(in);
         assertEquals(MealType.Breakfast, testIn.readType());

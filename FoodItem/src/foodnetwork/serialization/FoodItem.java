@@ -27,7 +27,6 @@ public class FoodItem {
      *            deserialization of input source
      * @throws FoodNetworkException
      *             if deserialization of validation failure
-     * @throws IOException 
      */
     public FoodItem(MessageInput in) throws FoodNetworkException, IOException {
         try {
