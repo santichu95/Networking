@@ -5,12 +5,26 @@ import static org.junit.Assert.*;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 
 import org.junit.Test;
 
 public class FoodItemTest {
 
 	MealType meal;
+	@Test
+	public void testReadInt() throws IOException {
+		FileInputStream in;
+		try {
+			in = new FileInputStream(new File("data"));
+			MessageInput test = new MessageInput(in);
+			assertEquals(4,test.readInt());
+		} catch (FileNotFoundException e) {
+			System.err.println("File Not Found");
+			e.printStackTrace();
+		}
+	}
+
 	@Test
 	public void testReadName() throws FoodNetworkException{
 		try {
