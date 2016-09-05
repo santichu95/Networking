@@ -1,11 +1,86 @@
+/************************************************
+*
+* Author: Santiago Andaluz Ruiz
+* Assignment: Program 0: Fatbat
+* Class: CSI 4321 Data Comm
+*
+************************************************/
 package foodnetwork.serialization;
 
-/**	Meal Type
+/**
+ * Meal Type
  * 
- * @author Santiago Andaluz
+ * @author Santiago Andaluz Ruiz
  *
  */
 public enum MealType {
+<<<<<<< HEAD
+    /**
+     * Breakfast
+     */
+    Breakfast,
+    /**
+     * Lunch
+     */
+    Lunch,
+    /**
+     * Dinner
+     */
+    Dinner,
+    /**
+     * Snack
+     */
+    Snack;
+
+    /**
+     * Get meal type for given code
+     * 
+     * @param code
+     *            : code of meal type
+     * @return meal type corresponding to code
+     * @throws FoodNetworkException
+     *             if bad code value
+     */
+    public static MealType getMealType(char code) throws FoodNetworkException {
+        MealType result = null;
+        switch (code) {
+        case 'B':
+            result = Breakfast;
+            break;
+        case 'L':
+            result = Lunch;
+            break;
+        case 'D':
+            result = Dinner;
+            break;
+        case 'S':
+            result = Snack;
+            break;
+        default:
+            throw new FoodNetworkException("Bad code value");
+        }
+        return result;
+    }
+
+    /**
+     * get code for meal type
+     * 
+     * @return meal type code
+     */
+    public char getMealTypeCode() {
+        char result = ' ';
+        if (this.equals(Breakfast)) {
+            result = 'B';
+        } else if (this.equals(Lunch)) {
+            result = 'L';
+        } else if (this.equals(Dinner)) {
+            result = 'D';
+        } else if (this.equals(Snack)) {
+            result = 'S';
+        }
+        return result;
+    }
+=======
 	/**
 	 * Breakfast
 	 */
@@ -61,4 +136,5 @@ public enum MealType {
 		}
 		return result;
 	}
+>>>>>>> master
 }
