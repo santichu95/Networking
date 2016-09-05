@@ -7,4 +7,7 @@
 <fullyQualifiedTypeName name="java.io.PipedInputStream"/>
 <fullyQualifiedTypeName name="java.io.PipedOutputStream"/>
 <fullyQualifiedTypeName name="foodnetwork.serialization.MessageOutput"/>
+<fullyQualifiedTypeName name="java.io.EOFException"/>
+<fullyQualifiedTypeName name="java.nio.charset.Charset"/>
+<fullyQualifiedTypeName name="java.nio.charset.CharsetEncoder"/>
 </qualifiedTypeNameHistroy>

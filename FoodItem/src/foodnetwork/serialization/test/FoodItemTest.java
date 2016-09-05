@@ -177,7 +177,7 @@ public class FoodItemTest {
     }
 
     @Test
-    public void testReadEntireFoodItem() throws FoodNetworkException, FileNotFoundException {
+    public void testReadEntireFoodItem() throws FoodNetworkException, IOException {
         in = new FileInputStream(new File("breakfast"));
         testIn = new MessageInput(in);
 
@@ -205,14 +205,14 @@ public class FoodItemTest {
     }
 
     @Test
-    public void testReadInt() throws FoodNetworkException, FileNotFoundException {
+    public void testReadInt() throws FoodNetworkException, IOException {
         in = new FileInputStream(new File("breakfast"));
         testIn = new MessageInput(in);
         assertEquals(4, testIn.readInt());
     }
 
     @Test
-    public void testReadName() throws FoodNetworkException, FileNotFoundException {
+    public void testReadName() throws FoodNetworkException, IOException {
         in = new FileInputStream(new File("breakfast"));
         testIn = new MessageInput(in);
         assertEquals("plum", testIn.readName());

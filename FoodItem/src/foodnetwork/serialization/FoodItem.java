@@ -27,8 +27,9 @@ public class FoodItem {
      *            deserialization of input source
      * @throws FoodNetworkException
      *             if deserialization of validation failure
+     * @throws IOException 
      */
-    public FoodItem(MessageInput in) throws FoodNetworkException {
+    public FoodItem(MessageInput in) throws FoodNetworkException, IOException {
         try {
             name = in.readName();
             type = in.readType();
@@ -78,25 +79,30 @@ public class FoodItem {
         }
     }
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see java.lang.Object#equals(java.lang.Object)
-     */
+    @Override
     public boolean equals(Object obj) {
-        Boolean ans = false;
-
-        if (this.name.equals(((FoodItem) obj).getName())) {
-            if (this.fat.equals(((FoodItem) obj).getFat())) {
-                if (this.calories == ((FoodItem) obj).getCalories()) {
-                    if (this.type == ((FoodItem) obj).getMealType()) {
-                        ans = true;
-                    }
-                }
-            }
-        }
-
-        return ans;
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        FoodItem other = (FoodItem) obj;
+        if (calories != other.calories)
+            return false;
+        if (fat == null) {
+            if (other.fat != null)
+                return false;
+        } else if (!fat.equals(other.fat))
+            return false;
+        if (name == null) {
+            if (other.name != null)
+                return false;
+        } else if (!name.equals(other.name))
+            return false;
+        if (type != other.type)
+            return false;
+        return true;
     }
 
     /**
@@ -135,13 +141,15 @@ public class FoodItem {
         return name;
     }
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see java.lang.Object#hashCode()
-     */
+    @Override
     public int hashCode() {
-        return super.hashCode();
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + (int) (calories ^ (calories >>> 32));
+        result = prime * result + ((fat == null) ? 0 : fat.hashCode());
+        result = prime * result + ((name == null) ? 0 : name.hashCode());
+        result = prime * result + ((type == null) ? 0 : type.hashCode());
+        return result;
     }
 
     /**

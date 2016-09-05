@@ -7,7 +7,10 @@
 ************************************************/
 package foodnetwork.serialization;
 
+import java.io.EOFException;
 import java.io.IOException;
+import java.nio.charset.Charset;
+import java.nio.charset.CharsetEncoder;
 
 /**
  * Deserialization input source
@@ -38,21 +41,25 @@ public class MessageInput {
      * @return The name of the FoodItem
      * @throws FoodNetworkException
      *             if expected more bytes than were given
+     * @throws IOException 
      */
-    public String readName() throws FoodNetworkException {
+    public String readName() throws FoodNetworkException, IOException {
         String name;
+        
+        //Credit: RealHowTo http://stackoverflow.com/users/25122/realhowto
+        CharsetEncoder asciiEncoder = Charset.forName("US-ASCII").newEncoder();
 
-        try {
-            charCount = this.readInt();
+        charCount = this.readInt();
 
-            buffer = new byte[charCount];
+        buffer = new byte[charCount];
 
-            input.read(buffer, 0, charCount);
+        input.read(buffer, 0, charCount);
 
-            name = new String(buffer);
-        } catch (IOException e) {
-            FoodNetworkException err = new FoodNetworkException("Expected to get name of food");
-            throw err;
+        name = new String(buffer);
+        
+        //Credit: RealHowTo http://stackoverflow.com/users/25122/realhowto
+        if ( !(asciiEncoder.canEncode(name)) ) {
+            throw new FoodNetworkException("Non ASCII Character found");
         }
 
         return name;
@@ -62,25 +69,26 @@ public class MessageInput {
      * Reads an int from InputStream
      * 
      * @return int that was read from InputStream
-     * @throws FoodNetworkException
-     *             if expected more bytes than were given
+     * @throws FoodNetworkException Did not get correct input
      */
-    public int readInt() throws FoodNetworkException {
+    public int readInt() throws FoodNetworkException, IOException {
         buffer = new byte[charSize];
         String tempInt = "";
         boolean endInt = false;
 
-        try {
-            while (!endInt && 1 == input.read(buffer, 0, charSize)) {
-                if (buffer[0] <= '9' && buffer[0] >= '0') {
-                    tempInt += ((char) buffer[0]);
-                } else {
-                    endInt = true;
+        while (!endInt && 1 == input.read(buffer, 0, charSize)) {
+            if ( buffer[0] != ' ' ) {
+                if ( buffer[0] >= '9' || buffer[0] <= '0' ) {
+                    throw new FoodNetworkException("Did not get a digit 0-9");
                 }
+                tempInt += ((char) buffer[0]);
+            } else {
+                endInt = true;
             }
-        } catch (IOException e) {
-            FoodNetworkException err = new FoodNetworkException("Expected to get Character Count");
-            throw err;
+        }
+        
+        if ( !endInt ) {
+            throw new EOFException("Expected more input");
         }
 
         charCount = Integer.parseInt(tempInt);
