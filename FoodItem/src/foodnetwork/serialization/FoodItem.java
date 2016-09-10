@@ -51,12 +51,23 @@ public class FoodItem {
      *            number of calories in food item
      * @param fat
      *            grams of fat in food item
+     * @throws FoodNetworkException 
      */
-    public FoodItem(String name, MealType mealType, long calories, String fat) {
+    public FoodItem(String name, MealType mealType, long calories, String fat) throws FoodNetworkException {
 
+        if ( name == null ){
+            throw new FoodNetworkException("Expected non-null string for name parameter");
+        }
+        if ( mealType == null ) {
+            throw new FoodNetworkException("Expected non-null string for meal type parameter");
+        }
+        if ( fat == null ) {
+            throw new FoodNetworkException("Expected non-null string for fat parameter");
+        }
+        
         this.name = name;
         this.type = mealType;
-        this.calories = calories;
+        this.calories = (long)calories;
         this.fat = fat;
     }
 

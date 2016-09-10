@@ -174,7 +174,7 @@ public class MessageInput {
 
         while (!endFat && 1 == input.read(buffer, 0, charSize)) {
             if ( buffer[0] != ' ' ) {
-                if ( (buffer[0] > '9' && buffer[0] < '0' && buffer[0] != '.') ) {
+                if ( ( (buffer[0] > '9' || buffer[0] < '0') && buffer[0] != '.') ) {
                     throw new FoodNetworkException("Invalid input for Fat");
                 }
                 fat += ((char) buffer[0]);

@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-[[{"location":"C:\\Users\\Santi\\Documents\\Networking\\FoodItem","type":"PROJECT","hints":{"PROJECT_NAME":"FoodItem"}},"ABSENT"],[{"location":"C:\\Program Files\\Java\\jre1.8.0_101","type":"JRE","hints":{"EXECUTION_ENVIRONMENT":"JavaSE-1.8"}},"jre:jre:1.8.0"]]
-=======
-[[{"location":"H:\\Networking\\FoodItem","type":"PROJECT","hints":{"PROJECT_NAME":"FoodItem"}},"ABSENT"],[{"location":"C:\\Program Files\\Java\\jre8","type":"JRE","hints":{"EXECUTION_ENVIRONMENT":"JavaSE-1.8"}},"jre:jre:1.8.0"],[{"location":"C:\\Users\\Santi\\Documents\\Networking\\FoodItem","type":"PROJECT","hints":{"PROJECT_NAME":"FoodItem"}},"ABSENT"]]
->>>>>>> master
+[[{"location":"H:\\Networking\\FoodItem","type":"PROJECT","hints":{"PROJECT_NAME":"FoodItem"}},"ABSENT"],[{"location":"C:\\Program Files\\Java\\jre8","type":"JRE","hints":{"EXECUTION_ENVIRONMENT":"JavaSE-1.8"}},"jre:jre:1.8.0"]]

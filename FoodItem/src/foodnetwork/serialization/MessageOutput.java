@@ -28,6 +28,10 @@ public class MessageOutput {
     public MessageOutput(java.io.OutputStream out) {
         this.out = out;
     }
+    
+    public void writeInt(String name) throws IOException {
+        out.write((((Integer) name.length()).toString() + " ").getBytes());
+    }
 
     /**
      * Writes name to OutputStream
@@ -37,7 +41,8 @@ public class MessageOutput {
      * @throws IOException some I/O error occurs
      */
     public void writeName(String name) throws IOException {
-        out.write(name.getBytes());
+        writeInt(name);
+        out.write((name).getBytes());
     }
 
     /**
@@ -48,7 +53,7 @@ public class MessageOutput {
      * @throws IOException some I/O error occurs
      */
     public void writeCal(long calories) throws IOException {
-        out.write(((Long) calories).toString().getBytes());
+        out.write((((Long) calories).toString() + " ").getBytes());
     }
 
     /**
@@ -70,6 +75,6 @@ public class MessageOutput {
      * @throws IOException some I/O error occurs
      */
     public void writeFat(String fat) throws IOException {
-        out.write(fat.getBytes());
+        out.write((fat + " ").getBytes());
     }
 }

@@ -13,9 +13,9 @@ package foodnetwork.serialization;
  * @author Santiago Andaluz Ruiz
  *
  */
-@SuppressWarnings("serial")
 public class FoodNetworkException extends java.lang.Exception {
 
+    private static final long serialVersionUID = 1810537222285527822L;
     String message;
 
     /**

@@ -67,16 +67,17 @@ public enum MealType {
      * @return meal type code
      */
     public char getMealTypeCode() {
-        char result = ' ';
+        char result;
         if (this.equals(Breakfast)) {
             result = 'B';
         } else if (this.equals(Lunch)) {
             result = 'L';
         } else if (this.equals(Dinner)) {
             result = 'D';
-        } else if (this.equals(Snack)) {
+        } else {
             result = 'S';
         }
+        
         return result;
     }
 }
