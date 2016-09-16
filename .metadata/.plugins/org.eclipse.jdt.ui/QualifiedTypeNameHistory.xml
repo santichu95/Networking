@@ -10,4 +10,5 @@
 <fullyQualifiedTypeName name="java.nio.charset.Charset"/>
 <fullyQualifiedTypeName name="java.nio.charset.CharsetEncoder"/>
 <fullyQualifiedTypeName name="java.io.EOFException"/>
+<fullyQualifiedTypeName name="java.io.InputStream"/>
 </qualifiedTypeNameHistroy>
