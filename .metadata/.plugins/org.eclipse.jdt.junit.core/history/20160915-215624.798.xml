@@ -1,0 +1,505 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="H__Networking_Prog0Test.jar" project="FoodItem" tests="65" started="65" failures="0" errors="10" ignored="0">
+  <testsuite name="foodnetwork.serialization.donatest.FoodItemTest" time="0.004">
+    <testsuite name="[0]" time="0.001">
+      <testcase name="testGetSetName[0]" classname="foodnetwork.serialization.donatest.FoodItemTest" time="0.001"/>
+      <testcase name="testGetSetMealType[0]" classname="foodnetwork.serialization.donatest.FoodItemTest" time="0.0"/>
+      <testcase name="testShortEncode[0]" classname="foodnetwork.serialization.donatest.FoodItemTest" time="0.0">
+        <error>java.lang.Exception: Unexpected exception, expected&lt;foodnetwork.serialization.FoodNetworkException&gt; but was&lt;java.lang.Error&gt;&#13;
+	at org.junit.internal.runners.statements.ExpectException.evaluate(ExpectException.java:28)&#13;
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)&#13;
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)&#13;
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)&#13;
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)&#13;
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)&#13;
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)&#13;
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)&#13;
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)&#13;
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)&#13;
+	at org.junit.runners.Suite.runChild(Suite.java:128)&#13;
+	at org.junit.runners.Suite.runChild(Suite.java:27)&#13;
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)&#13;
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)&#13;
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)&#13;
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)&#13;
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)&#13;
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)&#13;
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:86)&#13;
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)&#13;
+Caused by: java.lang.Error: Unresolved compilation problems: 
+	Unhandled exception type FoodNetworkException
+	Unhandled exception type FoodNetworkException
+	Unhandled exception type FoodNetworkException
+	Unhandled exception type FoodNetworkException
+&#13;
+	at foodnetwork.serialization.FoodItem.encode(FoodItem.java:82)&#13;
+	at foodnetwork.serialization.donatest.FoodItemTest.testShortEncode(Unknown Source)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)&#13;
+	at java.lang.reflect.Method.invoke(Unknown Source)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.internal.runners.statements.ExpectException.evaluate(ExpectException.java:19)&#13;
+	... 23 more&#13;
+&#13;
+</error>
+      </testcase>
+      <testcase name="testGetSetCalories[0]" classname="foodnetwork.serialization.donatest.FoodItemTest" time="0.0"/>
+      <testcase name="testDecode[0]" classname="foodnetwork.serialization.donatest.FoodItemTest" time="0.0"/>
+      <testcase name="testEncode[0]" classname="foodnetwork.serialization.donatest.FoodItemTest" time="0.0">
+        <error>java.lang.Error: Unresolved compilation problems: 
+	Unhandled exception type FoodNetworkException
+	Unhandled exception type FoodNetworkException
+	Unhandled exception type FoodNetworkException
+	Unhandled exception type FoodNetworkException
+&#13;
+	at foodnetwork.serialization.FoodItem.encode(FoodItem.java:82)&#13;
+	at foodnetwork.serialization.donatest.FoodItemTest.testEncode(Unknown Source)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)&#13;
+	at java.lang.reflect.Method.invoke(Unknown Source)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)&#13;
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)&#13;
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)&#13;
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)&#13;
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)&#13;
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)&#13;
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)&#13;
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)&#13;
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)&#13;
+	at org.junit.runners.Suite.runChild(Suite.java:128)&#13;
+	at org.junit.runners.Suite.runChild(Suite.java:27)&#13;
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)&#13;
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)&#13;
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)&#13;
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)&#13;
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)&#13;
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)&#13;
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:86)&#13;
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)&#13;
+&#13;
+</error>
+      </testcase>
+      <testcase name="testGetSetFat[0]" classname="foodnetwork.serialization.donatest.FoodItemTest" time="0.0"/>
+      <testcase name="testDoubleDecode[0]" classname="foodnetwork.serialization.donatest.FoodItemTest" time="0.0"/>
+      <testcase name="testDoubleEncode[0]" classname="foodnetwork.serialization.donatest.FoodItemTest" time="0.0">
+        <error>java.lang.Error: Unresolved compilation problems: 
+	Unhandled exception type FoodNetworkException
+	Unhandled exception type FoodNetworkException
+	Unhandled exception type FoodNetworkException
+	Unhandled exception type FoodNetworkException
+&#13;
+	at foodnetwork.serialization.FoodItem.encode(FoodItem.java:82)&#13;
+	at foodnetwork.serialization.donatest.FoodItemTest.testDoubleEncode(Unknown Source)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)&#13;
+	at java.lang.reflect.Method.invoke(Unknown Source)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)&#13;
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)&#13;
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)&#13;
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)&#13;
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)&#13;
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)&#13;
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)&#13;
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)&#13;
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)&#13;
+	at org.junit.runners.Suite.runChild(Suite.java:128)&#13;
+	at org.junit.runners.Suite.runChild(Suite.java:27)&#13;
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)&#13;
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)&#13;
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)&#13;
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)&#13;
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)&#13;
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)&#13;
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:86)&#13;
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)&#13;
+&#13;
+</error>
+      </testcase>
+      <testcase name="testConstructor[0]" classname="foodnetwork.serialization.donatest.FoodItemTest" time="0.0"/>
+    </testsuite>
+    <testsuite name="[1]" time="0.0">
+      <testcase name="testGetSetName[1]" classname="foodnetwork.serialization.donatest.FoodItemTest" time="0.0"/>
+      <testcase name="testGetSetMealType[1]" classname="foodnetwork.serialization.donatest.FoodItemTest" time="0.0"/>
+      <testcase name="testShortEncode[1]" classname="foodnetwork.serialization.donatest.FoodItemTest" time="0.0">
+        <error>java.lang.Exception: Unexpected exception, expected&lt;foodnetwork.serialization.FoodNetworkException&gt; but was&lt;java.lang.Error&gt;&#13;
+	at org.junit.internal.runners.statements.ExpectException.evaluate(ExpectException.java:28)&#13;
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)&#13;
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)&#13;
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)&#13;
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)&#13;
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)&#13;
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)&#13;
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)&#13;
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)&#13;
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)&#13;
+	at org.junit.runners.Suite.runChild(Suite.java:128)&#13;
+	at org.junit.runners.Suite.runChild(Suite.java:27)&#13;
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)&#13;
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)&#13;
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)&#13;
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)&#13;
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)&#13;
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)&#13;
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:86)&#13;
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)&#13;
+Caused by: java.lang.Error: Unresolved compilation problems: 
+	Unhandled exception type FoodNetworkException
+	Unhandled exception type FoodNetworkException
+	Unhandled exception type FoodNetworkException
+	Unhandled exception type FoodNetworkException
+&#13;
+	at foodnetwork.serialization.FoodItem.encode(FoodItem.java:82)&#13;
+	at foodnetwork.serialization.donatest.FoodItemTest.testShortEncode(Unknown Source)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)&#13;
+	at java.lang.reflect.Method.invoke(Unknown Source)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.internal.runners.statements.ExpectException.evaluate(ExpectException.java:19)&#13;
+	... 23 more&#13;
+&#13;
+</error>
+      </testcase>
+      <testcase name="testGetSetCalories[1]" classname="foodnetwork.serialization.donatest.FoodItemTest" time="0.0"/>
+      <testcase name="testDecode[1]" classname="foodnetwork.serialization.donatest.FoodItemTest" time="0.0"/>
+      <testcase name="testEncode[1]" classname="foodnetwork.serialization.donatest.FoodItemTest" time="0.0">
+        <error>java.lang.Error: Unresolved compilation problems: 
+	Unhandled exception type FoodNetworkException
+	Unhandled exception type FoodNetworkException
+	Unhandled exception type FoodNetworkException
+	Unhandled exception type FoodNetworkException
+&#13;
+	at foodnetwork.serialization.FoodItem.encode(FoodItem.java:82)&#13;
+	at foodnetwork.serialization.donatest.FoodItemTest.testEncode(Unknown Source)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)&#13;
+	at java.lang.reflect.Method.invoke(Unknown Source)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)&#13;
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)&#13;
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)&#13;
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)&#13;
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)&#13;
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)&#13;
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)&#13;
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)&#13;
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)&#13;
+	at org.junit.runners.Suite.runChild(Suite.java:128)&#13;
+	at org.junit.runners.Suite.runChild(Suite.java:27)&#13;
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)&#13;
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)&#13;
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)&#13;
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)&#13;
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)&#13;
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)&#13;
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:86)&#13;
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)&#13;
+&#13;
+</error>
+      </testcase>
+      <testcase name="testGetSetFat[1]" classname="foodnetwork.serialization.donatest.FoodItemTest" time="0.0"/>
+      <testcase name="testDoubleDecode[1]" classname="foodnetwork.serialization.donatest.FoodItemTest" time="0.0"/>
+      <testcase name="testDoubleEncode[1]" classname="foodnetwork.serialization.donatest.FoodItemTest" time="0.0">
+        <error>java.lang.Error: Unresolved compilation problems: 
+	Unhandled exception type FoodNetworkException
+	Unhandled exception type FoodNetworkException
+	Unhandled exception type FoodNetworkException
+	Unhandled exception type FoodNetworkException
+&#13;
+	at foodnetwork.serialization.FoodItem.encode(FoodItem.java:82)&#13;
+	at foodnetwork.serialization.donatest.FoodItemTest.testDoubleEncode(Unknown Source)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)&#13;
+	at java.lang.reflect.Method.invoke(Unknown Source)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)&#13;
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)&#13;
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)&#13;
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)&#13;
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)&#13;
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)&#13;
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)&#13;
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)&#13;
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)&#13;
+	at org.junit.runners.Suite.runChild(Suite.java:128)&#13;
+	at org.junit.runners.Suite.runChild(Suite.java:27)&#13;
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)&#13;
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)&#13;
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)&#13;
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)&#13;
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)&#13;
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)&#13;
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:86)&#13;
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)&#13;
+&#13;
+</error>
+      </testcase>
+      <testcase name="testConstructor[1]" classname="foodnetwork.serialization.donatest.FoodItemTest" time="0.0"/>
+    </testsuite>
+    <testsuite name="[2]" time="0.003">
+      <testcase name="testGetSetName[2]" classname="foodnetwork.serialization.donatest.FoodItemTest" time="0.0"/>
+      <testcase name="testGetSetMealType[2]" classname="foodnetwork.serialization.donatest.FoodItemTest" time="0.0"/>
+      <testcase name="testShortEncode[2]" classname="foodnetwork.serialization.donatest.FoodItemTest" time="0.0">
+        <error>java.lang.Exception: Unexpected exception, expected&lt;foodnetwork.serialization.FoodNetworkException&gt; but was&lt;java.lang.Error&gt;&#13;
+	at org.junit.internal.runners.statements.ExpectException.evaluate(ExpectException.java:28)&#13;
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)&#13;
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)&#13;
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)&#13;
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)&#13;
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)&#13;
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)&#13;
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)&#13;
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)&#13;
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)&#13;
+	at org.junit.runners.Suite.runChild(Suite.java:128)&#13;
+	at org.junit.runners.Suite.runChild(Suite.java:27)&#13;
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)&#13;
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)&#13;
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)&#13;
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)&#13;
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)&#13;
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)&#13;
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:86)&#13;
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)&#13;
+Caused by: java.lang.Error: Unresolved compilation problems: 
+	Unhandled exception type FoodNetworkException
+	Unhandled exception type FoodNetworkException
+	Unhandled exception type FoodNetworkException
+	Unhandled exception type FoodNetworkException
+&#13;
+	at foodnetwork.serialization.FoodItem.encode(FoodItem.java:82)&#13;
+	at foodnetwork.serialization.donatest.FoodItemTest.testShortEncode(Unknown Source)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)&#13;
+	at java.lang.reflect.Method.invoke(Unknown Source)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.internal.runners.statements.ExpectException.evaluate(ExpectException.java:19)&#13;
+	... 23 more&#13;
+&#13;
+</error>
+      </testcase>
+      <testcase name="testGetSetCalories[2]" classname="foodnetwork.serialization.donatest.FoodItemTest" time="0.001"/>
+      <testcase name="testDecode[2]" classname="foodnetwork.serialization.donatest.FoodItemTest" time="0.0"/>
+      <testcase name="testEncode[2]" classname="foodnetwork.serialization.donatest.FoodItemTest" time="0.001">
+        <error>java.lang.Error: Unresolved compilation problems: 
+	Unhandled exception type FoodNetworkException
+	Unhandled exception type FoodNetworkException
+	Unhandled exception type FoodNetworkException
+	Unhandled exception type FoodNetworkException
+&#13;
+	at foodnetwork.serialization.FoodItem.encode(FoodItem.java:82)&#13;
+	at foodnetwork.serialization.donatest.FoodItemTest.testEncode(Unknown Source)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)&#13;
+	at java.lang.reflect.Method.invoke(Unknown Source)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)&#13;
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)&#13;
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)&#13;
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)&#13;
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)&#13;
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)&#13;
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)&#13;
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)&#13;
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)&#13;
+	at org.junit.runners.Suite.runChild(Suite.java:128)&#13;
+	at org.junit.runners.Suite.runChild(Suite.java:27)&#13;
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)&#13;
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)&#13;
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)&#13;
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)&#13;
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)&#13;
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)&#13;
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:86)&#13;
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)&#13;
+&#13;
+</error>
+      </testcase>
+      <testcase name="testGetSetFat[2]" classname="foodnetwork.serialization.donatest.FoodItemTest" time="0.0"/>
+      <testcase name="testDoubleDecode[2]" classname="foodnetwork.serialization.donatest.FoodItemTest" time="0.0"/>
+      <testcase name="testDoubleEncode[2]" classname="foodnetwork.serialization.donatest.FoodItemTest" time="0.0">
+        <error>java.lang.Error: Unresolved compilation problems: 
+	Unhandled exception type FoodNetworkException
+	Unhandled exception type FoodNetworkException
+	Unhandled exception type FoodNetworkException
+	Unhandled exception type FoodNetworkException
+&#13;
+	at foodnetwork.serialization.FoodItem.encode(FoodItem.java:82)&#13;
+	at foodnetwork.serialization.donatest.FoodItemTest.testDoubleEncode(Unknown Source)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)&#13;
+	at java.lang.reflect.Method.invoke(Unknown Source)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)&#13;
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)&#13;
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)&#13;
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)&#13;
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)&#13;
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)&#13;
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)&#13;
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)&#13;
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)&#13;
+	at org.junit.runners.Suite.runChild(Suite.java:128)&#13;
+	at org.junit.runners.Suite.runChild(Suite.java:27)&#13;
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)&#13;
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)&#13;
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)&#13;
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)&#13;
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)&#13;
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)&#13;
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:86)&#13;
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)&#13;
+&#13;
+</error>
+      </testcase>
+      <testcase name="testConstructor[2]" classname="foodnetwork.serialization.donatest.FoodItemTest" time="0.001"/>
+    </testsuite>
+  </testsuite>
+  <testsuite name="foodnetwork.serialization.donatest.MealTypeTest" time="0.002">
+    <testcase name="testGetMealTypeBadCode" classname="foodnetwork.serialization.donatest.MealTypeTest" time="0.002"/>
+    <testcase name="testGetMealType" classname="foodnetwork.serialization.donatest.MealTypeTest" time="0.0"/>
+    <testcase name="testGetMealTypeCode" classname="foodnetwork.serialization.donatest.MealTypeTest" time="0.0"/>
+  </testsuite>
+  <testsuite name="foodnetwork.serialization.donatest.FoodItemBoundsTest" time="0.012">
+    <testcase name="testBorderCalories" classname="foodnetwork.serialization.donatest.FoodItemBoundsTest" time="0.0"/>
+    <testcase name="testNullNameConstructor" classname="foodnetwork.serialization.donatest.FoodItemBoundsTest" time="0.0"/>
+    <testcase name="testEmptyNameSet" classname="foodnetwork.serialization.donatest.FoodItemBoundsTest" time="0.0"/>
+    <testcase name="testNullNameSet" classname="foodnetwork.serialization.donatest.FoodItemBoundsTest" time="0.0"/>
+    <testcase name="testNullFatConstructor" classname="foodnetwork.serialization.donatest.FoodItemBoundsTest" time="0.0"/>
+    <testcase name="testNegativeCaloriesConstructor" classname="foodnetwork.serialization.donatest.FoodItemBoundsTest" time="0.001"/>
+    <testcase name="testHashcodeEqualsObjectsSameNumber" classname="foodnetwork.serialization.donatest.FoodItemBoundsTest" time="0.0"/>
+    <testcase name="testNameLengthDecode" classname="foodnetwork.serialization.donatest.FoodItemBoundsTest" time="0.0"/>
+    <testcase name="testHashcodeConsistent" classname="foodnetwork.serialization.donatest.FoodItemBoundsTest" time="0.0"/>
+    <testcase name="testPoorlyFormattedCalories" classname="foodnetwork.serialization.donatest.FoodItemBoundsTest" time="0.0"/>
+    <testcase name="testEqualsReflexive" classname="foodnetwork.serialization.donatest.FoodItemBoundsTest" time="0.0"/>
+    <testcase name="testEqualsNull" classname="foodnetwork.serialization.donatest.FoodItemBoundsTest" time="0.001"/>
+    <testcase name="testEqualsWrongType" classname="foodnetwork.serialization.donatest.FoodItemBoundsTest" time="0.0"/>
+    <testcase name="testNullMealTypeSet" classname="foodnetwork.serialization.donatest.FoodItemBoundsTest" time="0.001"/>
+    <testcase name="testEqualsSymmetric" classname="foodnetwork.serialization.donatest.FoodItemBoundsTest" time="0.0"/>
+    <testcase name="testBadMealType" classname="foodnetwork.serialization.donatest.FoodItemBoundsTest" time="0.0"/>
+    <testcase name="testPoorlyFormattedFat" classname="foodnetwork.serialization.donatest.FoodItemBoundsTest" time="0.004"/>
+    <testcase name="testParallelDecode" classname="foodnetwork.serialization.donatest.FoodItemBoundsTest" time="0.002"/>
+    <testcase name="testParallelEncode" classname="foodnetwork.serialization.donatest.FoodItemBoundsTest" time="0.001">
+      <error>java.lang.Error: Unresolved compilation problems: 
+	Unhandled exception type FoodNetworkException
+	Unhandled exception type FoodNetworkException
+	Unhandled exception type FoodNetworkException
+	Unhandled exception type FoodNetworkException
+&#13;
+	at foodnetwork.serialization.FoodItem.encode(FoodItem.java:82)&#13;
+	at foodnetwork.serialization.donatest.FoodItemBoundsTest.testParallelEncode(Unknown Source)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)&#13;
+	at java.lang.reflect.Method.invoke(Unknown Source)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)&#13;
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)&#13;
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)&#13;
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)&#13;
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)&#13;
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)&#13;
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)&#13;
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)&#13;
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)&#13;
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:86)&#13;
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testNullMealTypeConstructor" classname="foodnetwork.serialization.donatest.FoodItemBoundsTest" time="0.0"/>
+    <testcase name="testNegativeCaloriesSet" classname="foodnetwork.serialization.donatest.FoodItemBoundsTest" time="0.0"/>
+    <testcase name="testNullFatSet" classname="foodnetwork.serialization.donatest.FoodItemBoundsTest" time="0.0"/>
+    <testcase name="testBorderFat" classname="foodnetwork.serialization.donatest.FoodItemBoundsTest" time="0.0"/>
+    <testcase name="testEqualsTransitive" classname="foodnetwork.serialization.donatest.FoodItemBoundsTest" time="0.001"/>
+    <testcase name="testLetterCaloriesDecode" classname="foodnetwork.serialization.donatest.FoodItemBoundsTest" time="0.0"/>
+    <testcase name="testEmptyNameConstructor" classname="foodnetwork.serialization.donatest.FoodItemBoundsTest" time="0.0"/>
+    <testcase name="testParallelConstruction" classname="foodnetwork.serialization.donatest.FoodItemBoundsTest" time="0.0"/>
+    <testcase name="testLongMealType" classname="foodnetwork.serialization.donatest.FoodItemBoundsTest" time="0.0"/>
+    <testcase name="testLetterFat" classname="foodnetwork.serialization.donatest.FoodItemBoundsTest" time="0.001"/>
+    <testcase name="testEqualsConsistent" classname="foodnetwork.serialization.donatest.FoodItemBoundsTest" time="0.0"/>
+  </testsuite>
+  <testsuite name="foodnetwork.serialization.donatest.FoodNetworkExceptionTest" time="0.0">
+    <testcase name="testAddATudeExceptionConstructorCause" classname="foodnetwork.serialization.donatest.FoodNetworkExceptionTest" time="0.0"/>
+    <testcase name="testAddATudeExceptionConstructor" classname="foodnetwork.serialization.donatest.FoodNetworkExceptionTest" time="0.0"/>
+  </testsuite>
+</testrun>

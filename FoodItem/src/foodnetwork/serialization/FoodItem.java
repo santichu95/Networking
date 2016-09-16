@@ -17,26 +17,26 @@ import java.io.IOException;
  */
 public class FoodItem {
 
-    String name;
-    MealType type;
-    long calories;
-    String fat;
+    private String name;
+    private MealType type;
+    private long calories;
+    private String fat;
 
     /**
      * @param in
      *            deserialization of input source
      * @throws FoodNetworkException
      *             if deserialization of validation failure
+     * @throws IOException Some I/O error occured
      */
-    public FoodItem(MessageInput in) throws FoodNetworkException, IOException {
+    public FoodItem(MessageInput in) throws FoodNetworkException, IOException{        
         try {
-            name = in.readName();
-            type = in.readType();
-            calories = in.readCal();
-            fat = in.readFat();
+            setName(in.readName());
+            setMealType(in.readType());
+            setCalories(in.readCal());
+            setFat(in.readFat());
         } catch (FoodNetworkException e) {
-            System.err.println(e.getMessage());
-            e.printStackTrace();
+            throw e;
         }
     }
 
@@ -51,10 +51,10 @@ public class FoodItem {
      *            number of calories in food item
      * @param fat
      *            grams of fat in food item
-     * @throws FoodNetworkException 
+     * @throws FoodNetworkException Passed parameters do not satisfy constraints
      */
     public FoodItem(String name, MealType mealType, long calories, String fat) throws FoodNetworkException {
-
+        
         if ( name == null ){
             throw new FoodNetworkException("Expected non-null string for name parameter");
         }
@@ -65,10 +65,10 @@ public class FoodItem {
             throw new FoodNetworkException("Expected non-null string for fat parameter");
         }
         
-        this.name = name;
-        this.type = mealType;
-        this.calories = (long)calories;
-        this.fat = fat;
+        setName(name);
+        setMealType(mealType);
+        setCalories(calories);
+        setFat(fat);
     }
 
     /**
@@ -76,42 +76,44 @@ public class FoodItem {
      * 
      * @param out
      *            serialization output destination
+     * @throws FoodNetworkException Something went wrong encoding
      */
-    public void encode(MessageOutput out) {
-        try {
-            out.writeName(name);
-            out.writeType(type);
-            out.writeCal(calories);
-            out.writeFat(fat);
-        } catch (IOException e) {
-            System.err.println("Incorrect data");
-            e.printStackTrace();
-        }
+    public void encode(MessageOutput out) throws FoodNetworkException {
+        out.writeName(name);
+        out.writeType(type);
+        out.writeCal(calories);
+        out.writeFat(fat);        
     }
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj)
+        if (this == obj){
             return true;
-        if (obj == null)
+        }
+        if (obj == null){
             return false;
-        if (getClass() != obj.getClass())
+        }
+        if (getClass() != obj.getClass()) {
             return false;
+        }
         FoodItem other = (FoodItem) obj;
-        if (calories != other.calories)
+        if (calories != other.calories) {
             return false;
-        if (fat == null) {
-            if (other.fat != null)
+        }
+        if (fat == null && other.fat != null) {
                 return false;
-        } else if (!fat.equals(other.fat))
+        }
+        if (!fat.equals(other.fat))
             return false;
-        if (name == null) {
-            if (other.name != null)
+        if (name == null && other.name != null) {
                 return false;
-        } else if (!name.equals(other.name))
+        }
+        if (!name.equals(other.name)) {
             return false;
-        if (type != other.type)
+        }
+        if (type != other.type) {
             return false;
+        }
         return true;
     }
 
@@ -167,8 +169,14 @@ public class FoodItem {
      * 
      * @param fat
      *            new grams of fat
+     * @throws FoodNetworkException Passed parameter does not satisfy constraints
      */
-    public void setFat(String fat) {
+    public void setFat(String fat) throws FoodNetworkException {
+        if ( fat == null ) {
+            throw new FoodNetworkException("Expected non-null fat");
+        } if (fat.matches("[a-zA-z]+")) {
+            throw new FoodNetworkException("Expected only numerical characters in fat");
+        }
         this.fat = fat;
     }
 
@@ -177,8 +185,12 @@ public class FoodItem {
      * 
      * @param mealType
      *            new meal type
+     * @throws FoodNetworkException Passed parameter does not satisfy constraints
      */
-    public void setMealType(MealType mealType) {
+    public void setMealType(MealType mealType) throws FoodNetworkException {
+        if ( mealType == null ) {
+            throw new FoodNetworkException("Expected non-null MealType");
+        }
         this.type = mealType;
     }
 
@@ -187,9 +199,16 @@ public class FoodItem {
      * 
      * @param name
      *            new name
+     * @throws FoodNetworkException Passed parameter does not satisfy constraints
      */
-    public void setName(String name) {
-        this.name = name;
+    public void setName( String name ) throws FoodNetworkException {
+        if( name == null ) {
+            throw new FoodNetworkException("Expected non-null string for name");
+        } else if( name.length() < 1  || name.matches("^\\s+$") ) {
+            throw new FoodNetworkException("Expected non-empty string for name");
+        } else {
+            this.name = name;
+        }
     }
 
     /**
@@ -197,8 +216,12 @@ public class FoodItem {
      * 
      * @param cal
      *            new calories
+     * @throws FoodNetworkException Passed parameter does not satisfy constraints
      */
-    public void setCalories(long cal) {
+    public void setCalories(long cal) throws FoodNetworkException {
+        if ( cal < 0 ) {
+            throw new FoodNetworkException("Expected non-negative calories");
+        }
         calories = cal;
     }
 

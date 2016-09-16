@@ -10,7 +10,6 @@ package foodnetwork.serialization.test;
 import static org.junit.Assert.*;
 
 import java.io.EOFException;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.PipedInputStream;
 import java.io.PipedOutputStream;
@@ -25,14 +24,19 @@ import foodnetwork.serialization.MessageOutput;
 
 public class FoodItemTest {
 
-    MealType meal;
-    MessageInput testIn;
-    MessageOutput testOut;
-    FileInputStream in;
-    FoodItem foodOne, foodTwo;
+    private MealType meal;
+    private MessageInput testIn;
+    private MessageOutput testOut;
+    private FoodItem foodOne, foodTwo;
 
-    PipedInputStream inPipe;
-    PipedOutputStream outPipe;
+    private PipedInputStream inPipe;
+    private PipedOutputStream outPipe;
+    
+    @Test(expected = FoodNetworkException.class) 
+    public void testEmptyNameSet() throws FoodNetworkException{
+        foodOne = new FoodItem("Plum", MealType.Breakfast, 50, "2.8");
+        foodOne.setName(" ");
+    }
     
     @Test(expected = FoodNetworkException.class)
     public void testNullNameConstructor() throws FoodNetworkException {
@@ -40,7 +44,7 @@ public class FoodItemTest {
     }
     
     @Test
-    public void testEncodePrint() throws FoodNetworkException {
+    public void testEncodePrint() throws FoodNetworkException, IOException {
         foodOne = new FoodItem("plum", MealType.Breakfast, 50, "2.8");
         testOut = new MessageOutput(System.out);
         foodOne.encode(testOut);
@@ -371,12 +375,26 @@ public class FoodItemTest {
         testIn.readName();
     }
 
-    @Test(expected = FoodNetworkException.class)
+    @Test(expected = EOFException.class)
     public void testReadNameException3() throws IOException, FoodNetworkException {
         inPipe = new PipedInputStream();
         outPipe = new PipedOutputStream(inPipe);
         
         outPipe.write("4Plum".getBytes());
+        
+        outPipe.close();
+        
+        testIn = new MessageInput(inPipe);
+        
+        testIn.readName();
+    }
+
+    @Test(expected = FoodNetworkException.class)
+    public void testReadNameException8() throws IOException, FoodNetworkException {
+        inPipe = new PipedInputStream();
+        outPipe = new PipedOutputStream(inPipe);
+        
+        outPipe.write("4Plum ".getBytes());
         
         outPipe.close();
         
@@ -415,7 +433,7 @@ public class FoodItemTest {
     }
 
     @Test
-    public void testWriteTypeBreakfast() throws IOException {
+    public void testWriteTypeBreakfast() throws IOException, FoodNetworkException {
         byte[] buffer = new byte[1];
         inPipe = new PipedInputStream();
         outPipe = new PipedOutputStream(inPipe);
@@ -434,7 +452,7 @@ public class FoodItemTest {
     }
 
     @Test
-    public void testWriteFat() throws IOException {
+    public void testWriteFat() throws IOException, FoodNetworkException {
         
         byte[] buffer;
         inPipe = new PipedInputStream();
@@ -529,7 +547,7 @@ public class FoodItemTest {
     }
 
     @Test
-    public void testWriteName() throws IOException {
+    public void testWriteName() throws IOException, FoodNetworkException {
         inPipe = new PipedInputStream();
         outPipe = new PipedOutputStream(inPipe);
 
@@ -553,7 +571,7 @@ public class FoodItemTest {
     }
 
     @Test
-    public void testWriteCal() throws IOException {
+    public void testWriteCal() throws IOException, FoodNetworkException {
         inPipe = new PipedInputStream();
         outPipe = new PipedOutputStream(inPipe);
 

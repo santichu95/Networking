@@ -38,11 +38,15 @@ public class MessageOutput {
      * 
      * @param name
      *            name
-     * @throws IOException some I/O error occurs
+     * @throws FoodNetworkException
      */
-    public void writeName(String name) throws IOException {
-        writeInt(name);
-        out.write((name).getBytes());
+    public void writeName(String name) throws FoodNetworkException {
+        try {
+            writeInt(name);
+            out.write((name).getBytes());
+        } catch (IOException e) {
+           throw new FoodNetworkException(e.getMessage());
+        }
     }
 
     /**
@@ -50,10 +54,14 @@ public class MessageOutput {
      * 
      * @param calories
      *            calories
-     * @throws IOException some I/O error occurs
+     * @throws FoodNetworkException
      */
-    public void writeCal(long calories) throws IOException {
-        out.write((((Long) calories).toString() + " ").getBytes());
+    public void writeCal(long calories) throws FoodNetworkException {
+        try {
+            out.write((((Long) calories).toString() + " ").getBytes());
+        } catch (IOException e) {
+            throw new FoodNetworkException(e.getMessage());
+        }
     }
 
     /**
@@ -61,10 +69,14 @@ public class MessageOutput {
      * 
      * @param type
      *            meal type
-     * @throws IOException some I/O error occurs
+     * @throws FoodNetworkException
      */
-    public void writeType(MealType type) throws IOException {
-        out.write(((Character) type.getMealTypeCode()).toString().getBytes());
+    public void writeType(MealType type) throws FoodNetworkException {
+        try {
+            out.write(((Character) type.getMealTypeCode()).toString().getBytes());
+        } catch (IOException e) {
+            throw new FoodNetworkException(e.getMessage());
+        }
     }
 
     /**
@@ -72,9 +84,13 @@ public class MessageOutput {
      * 
      * @param fat
      *            grams of fat
-     * @throws IOException some I/O error occurs
+     * @throws FoodNetworkException
      */
-    public void writeFat(String fat) throws IOException {
-        out.write((fat + " ").getBytes());
+    public void writeFat(String fat) throws FoodNetworkException {
+        try {
+            out.write((fat + " ").getBytes());
+        } catch (IOException e) {
+            throw new FoodNetworkException(e.getMessage());
+        }
     }
 }

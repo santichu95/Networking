@@ -16,7 +16,7 @@ package foodnetwork.serialization;
 public class FoodNetworkException extends java.lang.Exception {
 
     private static final long serialVersionUID = 1810537222285527822L;
-    String message;
+    private String message;
 
     /**
      * Constructs food network exception with null cause

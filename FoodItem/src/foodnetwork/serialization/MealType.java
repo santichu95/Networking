@@ -17,48 +17,43 @@ public enum MealType {
     /**
      * Breakfast
      */
-    Breakfast,
+    Breakfast('B'),
     /**
      * Lunch
      */
-    Lunch,
+    Lunch('L'),
     /**
      * Dinner
      */
-    Dinner,
+    Dinner('D'),
     /**
      * Snack
      */
-    Snack;
+    Snack('S');
+    
+    private char code;
+    
+    private MealType(char code){
+        this.code = code;
+    }
 
     /**
      * Get meal type for given code
      * 
      * @param code
-     *            : code of meal type
+     *            code of meal type
      * @return meal type corresponding to code
      * @throws FoodNetworkException
      *             if bad code value
      */
     public static MealType getMealType(char code) throws FoodNetworkException {
-        MealType result = null;
-        switch (code) {
-        case 'B':
-            result = Breakfast;
-            break;
-        case 'L':
-            result = Lunch;
-            break;
-        case 'D':
-            result = Dinner;
-            break;
-        case 'S':
-            result = Snack;
-            break;
-        default:
-            throw new FoodNetworkException("Bad code value");
+        
+        for ( MealType temp : MealType.values() ) {
+            if ( temp.code == code ) {
+                return temp;
+            }
         }
-        return result;
+        throw new FoodNetworkException("Meal Type code is not valid");
     }
 
     /**
@@ -66,18 +61,7 @@ public enum MealType {
      * 
      * @return meal type code
      */
-    public char getMealTypeCode() {
-        char result;
-        if (this.equals(Breakfast)) {
-            result = 'B';
-        } else if (this.equals(Lunch)) {
-            result = 'L';
-        } else if (this.equals(Dinner)) {
-            result = 'D';
-        } else {
-            result = 'S';
-        }
-        
-        return result;
+    public char getMealTypeCode() {             
+        return code;
     }
 }

@@ -9,6 +9,7 @@ package foodnetwork.serialization;
 
 import java.io.EOFException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.charset.Charset;
 import java.nio.charset.CharsetEncoder;
 
@@ -20,10 +21,10 @@ import java.nio.charset.CharsetEncoder;
  */
 public class MessageInput {
 
-    java.io.InputStream input;
-    final int charSize = 1;
-    byte[] buffer;
-    int charCount;
+    private InputStream input;
+    private final int charSize = 1;
+    private byte[] buffer;
+    private int charCount;
 
     /**
      * Constructs a new input source from an InputStream
@@ -84,10 +85,7 @@ public class MessageInput {
 
         while (!endInt && 1 == input.read(buffer, 0, charSize)) {
             if ( buffer[0] != ' ' ) {
-                if ( buffer[0] > '9' || buffer[0] < '0' ) {
-                    throw new FoodNetworkException("Did not get a digit 0-9");
-                }
-                tempInt += ((char) buffer[0]);
+               tempInt += ((char) buffer[0]);
             } else {
                 endInt = true;
             }
@@ -97,7 +95,11 @@ public class MessageInput {
             throw new EOFException("Expected more input");
         }
 
+        try {
         charCount = Integer.parseInt(tempInt);
+        } catch( NumberFormatException e ) {
+            throw new FoodNetworkException("Expected unsinged integer string");
+        }
         return charCount;
     }
 
