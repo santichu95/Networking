@@ -1,0 +1,8 @@
+package foodnetwork.serialization;
+
+public abstract class Food {
+    public static FoodMessage decode(MessageInput in) {
+    }
+    
+    public abstract String getRequest();
+}

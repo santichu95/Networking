@@ -30,14 +30,10 @@ public class FoodItem {
      * @throws IOException Some I/O error occured
      */
     public FoodItem(MessageInput in) throws FoodNetworkException, IOException{        
-        try {
-            setName(in.readName());
-            setMealType(in.readType());
-            setCalories(in.readCal());
-            setFat(in.readFat());
-        } catch (FoodNetworkException e) {
-            throw e;
-        }
+            setName(in.readFLString());
+            setMealType(MealType.getMealType(in.readChar()));
+            setCalories(in.readLong());
+            setFat(in.readStringDouble());
     }
 
     /**

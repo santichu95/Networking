@@ -1,0 +1,38 @@
+package foodnetwork.serialization;
+
+public abstract class FoodMessage {
+    
+    private long messageTimestamp;
+
+    public static FoodMessage decode( MessageInput in ) {
+        return null;
+    }
+    
+    public void encode( MessageOutput out ) {
+    }
+    
+    public boolean equals( Object obj ) {
+        return true;
+    }
+    
+    public long getMessageTimestamp() {
+        return messageTimestamp;
+    }
+        
+    public abstract String getRequest();
+    
+    public int hashCoe() {
+        return 0;
+    }
+    
+    public void setMessageTimestamp( long messageTimestamp ) throws FoodNetworkException {
+        if ( messageTimestamp < 0 ) {
+            throw new FoodNetworkException ("Expected non-negative timestamp");
+        }
+        this.messageTimestamp = messageTimestamp;
+    }
+    
+    public String toString() {
+        return "";
+    }
+}

@@ -59,7 +59,7 @@ public class FoodItemTest {
         
         testIn = new MessageInput(inPipe);
         
-        testIn.readFat();
+        testIn.readStringDouble();
     }
     
     @Test(expected = FoodNetworkException.class) 
@@ -73,7 +73,7 @@ public class FoodItemTest {
         
         testIn = new MessageInput(inPipe);
         
-        testIn.readCal();
+        testIn.readLong();
     }
     
     @Test(expected = FoodNetworkException.class)
@@ -101,10 +101,10 @@ public class FoodItemTest {
     
     testIn = new MessageInput(inPipe);
     
-    testIn.readFat();        
+    testIn.readStringDouble();        
     }
     
-    @Test(expected = FoodNetworkException.class)
+    @Test(expected = EOFException.class)
     public void testReadCalException2() throws IOException, FoodNetworkException {
         inPipe = new PipedInputStream();
         outPipe = new PipedOutputStream(inPipe);
@@ -115,7 +115,7 @@ public class FoodItemTest {
         
         testIn = new MessageInput(inPipe);
         
-        testIn.readCal();
+        testIn.readLong();
     }
     
     
@@ -130,7 +130,7 @@ public class FoodItemTest {
         
         testIn = new MessageInput(inPipe);
         
-        testIn.readCal();
+        testIn.readLong();
     }
     
     @Test
@@ -144,7 +144,7 @@ public class FoodItemTest {
         
         testIn = new MessageInput(inPipe);
         
-        meal = testIn.readType();
+        meal = MealType.getMealType(testIn.readChar());
         
         assertEquals(MealType.Snack, meal);
         
@@ -162,7 +162,7 @@ public class FoodItemTest {
         
         testIn = new MessageInput(inPipe);
         
-        meal = testIn.readType();
+        meal = MealType.getMealType(testIn.readChar());
         
         assertEquals(MealType.Dinner, meal);
         inPipe.close();
@@ -179,7 +179,7 @@ public class FoodItemTest {
         
         testIn = new MessageInput(inPipe);
         
-        meal = testIn.readType();
+        meal = MealType.getMealType(testIn.readChar());
         
         assertEquals(MealType.Lunch, meal);
         inPipe.close();
@@ -196,7 +196,7 @@ public class FoodItemTest {
         
         testIn = new MessageInput(inPipe);
         
-        meal = testIn.readType();
+        meal = MealType.getMealType(testIn.readChar());
         
         assertEquals(MealType.Breakfast, meal);
         inPipe.close();
@@ -213,7 +213,7 @@ public class FoodItemTest {
         
         testIn = new MessageInput(inPipe);
         
-        testIn.readType();
+        MealType.getMealType(testIn.readChar());
     }
 
 
@@ -228,7 +228,7 @@ public class FoodItemTest {
         
         testIn = new MessageInput(inPipe);
         
-        testIn.readType();
+        MealType.getMealType(testIn.readChar());
     }
 
     @Test(expected = FoodNetworkException.class)
@@ -242,7 +242,7 @@ public class FoodItemTest {
         
         testIn = new MessageInput(inPipe);
         
-        testIn.readType();
+        MealType.getMealType(testIn.readChar());
     }
 
     @Test(expected = FoodNetworkException.class)
@@ -256,7 +256,7 @@ public class FoodItemTest {
         
         testIn = new MessageInput(inPipe);
         
-        testIn.readType();
+        MealType.getMealType(testIn.readChar());
     }
 
     @Test(expected = FoodNetworkException.class)
@@ -270,7 +270,7 @@ public class FoodItemTest {
         
         testIn = new MessageInput(inPipe);
         
-        testIn.readType();
+        MealType.getMealType(testIn.readChar());
     }
     
 
@@ -285,7 +285,7 @@ public class FoodItemTest {
         
         testIn = new MessageInput(inPipe);
         
-        testIn.readType();
+        MealType.getMealType(testIn.readChar());
     }
     
 
@@ -329,7 +329,7 @@ public class FoodItemTest {
         
         testIn = new MessageInput(inPipe);
         
-        testIn.readName();
+        testIn.readFLString();
     }
     
     
@@ -344,7 +344,7 @@ public class FoodItemTest {
         
         testIn = new MessageInput(inPipe);
         
-        testIn.readName();
+        testIn.readFLString();
     }
     
     @Test(expected = EOFException.class)
@@ -358,7 +358,7 @@ public class FoodItemTest {
         
         testIn = new MessageInput(inPipe);
         
-        testIn.readName();
+        testIn.readFLString();
     }
 
     @Test(expected = FoodNetworkException.class)
@@ -372,7 +372,7 @@ public class FoodItemTest {
         
         testIn = new MessageInput(inPipe);
         
-        testIn.readName();
+        testIn.readFLString();
     }
 
     @Test(expected = EOFException.class)
@@ -386,7 +386,7 @@ public class FoodItemTest {
         
         testIn = new MessageInput(inPipe);
         
-        testIn.readName();
+        testIn.readFLString();
     }
 
     @Test(expected = FoodNetworkException.class)
@@ -400,7 +400,7 @@ public class FoodItemTest {
         
         testIn = new MessageInput(inPipe);
         
-        testIn.readName();
+        testIn.readFLString();
     }
 
     @Test(expected = FoodNetworkException.class)
@@ -414,7 +414,7 @@ public class FoodItemTest {
         
         testIn = new MessageInput(inPipe);
         
-        testIn.readName();
+        testIn.readFLString();
     }
 
     @Test(expected = EOFException.class)
@@ -428,7 +428,7 @@ public class FoodItemTest {
         
         testIn = new MessageInput(inPipe);
         
-        testIn.readName();
+        testIn.readFLString();
         
     }
 
@@ -631,7 +631,7 @@ public class FoodItemTest {
         outPipe.close();
 
         testIn = new MessageInput(inPipe);
-        assertEquals("3.8", testIn.readFat());
+        assertEquals("3.8", testIn.readStringDouble());
         inPipe.close();
     }
 
@@ -658,7 +658,7 @@ public class FoodItemTest {
         outPipe.close();
 
         testIn = new MessageInput(inPipe);
-        assertEquals("plum", testIn.readName());
+        assertEquals("plum", testIn.readFLString());
         
        inPipe.close(); 
     }

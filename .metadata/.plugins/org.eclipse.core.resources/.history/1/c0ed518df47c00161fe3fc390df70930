@@ -1,0 +1,35 @@
+package foodnetwork.serialization;
+
+public abstract class FoodMessage {
+    
+    private long messageTimestamp;
+
+    public static FoodMessage decode( MessageInput in ) {
+        return null;
+    }
+    
+    public void encode( MessageOutput out ) {
+    }
+    
+    public boolean equals( Object obj ) {
+        return true;
+    }
+    
+    public long getMessageTimestamp() {
+        return 0;
+    }
+        
+    public abstract String getRequest();
+    
+    public int hashCoe() {
+        return 0;
+    }
+    
+    public void setMessageTimestamp( long messageTimestamp ) {
+        
+    }
+    
+    public String toString() {
+        return "";
+    }
+}

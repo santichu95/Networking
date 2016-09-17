@@ -25,6 +25,7 @@ public class MessageInput {
     private final int charSize = 1;
     private byte[] buffer;
     private int charCount;
+    private final char DELIMITER = ' ';
 
     /**
      * Constructs a new input source from an InputStream
@@ -37,19 +38,17 @@ public class MessageInput {
     }
 
     /**
-     * Reads in the Name of the FoodItem
+     * Reads in a Fixed Length String
      * 
-     * @return The name of the FoodItem
+     * @return the fixed length string that was read in
      * @throws FoodNetworkException
      *             if expected more bytes than were given
      * @throws IOException some I/O error occurs
      */
-    public String readName() throws FoodNetworkException, IOException {
+    public String readFLString() throws FoodNetworkException, IOException {
         String name;
-        
-        //Credit: RealHowTo http://stackoverflow.com/users/25122/realhowto
-        CharsetEncoder asciiEncoder = Charset.forName("US-ASCII").newEncoder();
 
+        //Getting the length of the string
         charCount = this.readInt();
         int countRead;
 
@@ -63,7 +62,10 @@ public class MessageInput {
 
         name = new String(buffer);
         
+        //Checking if all the characters are ascii
+        
         //Credit: RealHowTo http://stackoverflow.com/users/25122/realhowto
+        CharsetEncoder asciiEncoder = Charset.forName("US-ASCII").newEncoder();
         if ( !(asciiEncoder.canEncode(name)) ) {
             throw new FoodNetworkException("Non ASCII Character found");
         }
@@ -83,8 +85,8 @@ public class MessageInput {
         String tempInt = "";
         boolean endInt = false;
 
-        while (!endInt && 1 == input.read(buffer, 0, charSize)) {
-            if ( buffer[0] != ' ' ) {
+        while (!endInt && charSize == input.read(buffer, 0, charSize)) {
+            if ( buffer[0] != DELIMITER ) {
                tempInt += ((char) buffer[0]);
             } else {
                 endInt = true;
@@ -96,57 +98,50 @@ public class MessageInput {
         }
 
         try {
-        charCount = Integer.parseInt(tempInt);
+            charCount = Integer.parseInt(tempInt);
         } catch( NumberFormatException e ) {
             throw new FoodNetworkException("Expected unsinged integer string");
         }
+
         return charCount;
     }
 
     /**
-     * Reads the MealType from InputStream
+     * Reads a char from InputStream
      * 
-     * @return MealType MealType read in
+     * @return char char read in
      * @throws FoodNetworkException
      *             if expected more bytes than were given
      * @throws IOException some I/O error occurs
      */
-    public MealType readType() throws FoodNetworkException, IOException {
+    public char readChar() throws FoodNetworkException, IOException {
         buffer = new byte[charSize];
-        String convert;
-        MealType result;
 
         int counter = input.read(buffer, 0, buffer.length);
-        if ( counter < 1 ) {
+        if ( counter < charSize ) {
            throw new EOFException("Expected more input"); 
         }
 
-        convert = new String(buffer);
-        result = MealType.getMealType(convert.charAt(0));
-
-        return result;
+        return (char) buffer[0];
     }
 
     /**
-     * Reads the calories from InputStream
+     * Reads a long from InputStream
      * 
-     * @return long calories
+     * @return long long read in from InputStream
      * @throws FoodNetworkException
      *             if expected more bytes than were given
      * @throws IOException some I/O error occurs
      */
-    public long readCal() throws FoodNetworkException, IOException {
+    public long readLong() throws FoodNetworkException, IOException {
 
-        long cal;
+        long number;
         buffer = new byte[charSize];
         String tempLong = "";
         boolean endLong = false;
 
         while (!endLong && 1 == input.read(buffer, 0, charSize)) {
-            if (buffer[0] != ' ') {
-                if (buffer[0] > '9' || buffer[0] < '0') {
-                    throw new FoodNetworkException("Invalid input for calorie");
-                }
+            if (buffer[0] != DELIMITER ) {
                 tempLong += ((char) buffer[0]);
             } else {
                 endLong = true;
@@ -157,29 +152,31 @@ public class MessageInput {
             throw new EOFException("Expected more input");
         }
 
-        cal = Long.parseLong(tempLong);
-        return cal;
+        try {
+            number = Long.parseLong(tempLong);
+        } catch ( NumberFormatException e ) {
+            throw new FoodNetworkException(e.getMessage());
+        }
+
+        return number;
     }
 
     /**
-     * Reads the grams of fat form InputStream
+     * Reads in a double in the format of a string
      * 
      * @return grams of fat
      * @throws FoodNetworkException
-     *             if more bytes were excpted than were recieved.
+     *             if more bytes were expected than were received.
      * @throws IOException some I/O error occurs
      */
-    public String readFat() throws FoodNetworkException, IOException {
+    public String readStringDouble() throws FoodNetworkException, IOException {
         buffer = new byte[charSize];
-        String fat = "";
+        String number = "";
         boolean endFat = false;
 
         while (!endFat && 1 == input.read(buffer, 0, charSize)) {
-            if ( buffer[0] != ' ' ) {
-                if ( ( (buffer[0] > '9' || buffer[0] < '0') && buffer[0] != '.') ) {
-                    throw new FoodNetworkException("Invalid input for Fat");
-                }
-                fat += ((char) buffer[0]);
+            if ( buffer[0] != DELIMITER ) {
+                number += ((char) buffer[0]);
             } else {
                 endFat = true;
             }
@@ -189,7 +186,16 @@ public class MessageInput {
         if ( !endFat ) {
             throw new EOFException("Expected more input");
         }
+        if ( number.charAt(0) == '-' ) {
+            throw new FoodNetworkException("Expected non-negative fat");
+        }
         
-        return fat;
+        try {
+            Double.parseDouble(number);
+        } catch ( NumberFormatException e ) {
+            throw new FoodNetworkException(e.getMessage());
+        }
+        
+        return number;
     }
 }
