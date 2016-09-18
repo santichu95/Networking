@@ -8,7 +8,7 @@ public class ErrorMessage extends FoodMessage {
 
     public ErrorMessage( long timestamp, String message ) throws FoodNetworkException {
         setMessageTimestamp( timestamp );
-        this.message = message;
+        setErrorMessage( message );
     }
 
     /* (non-Javadoc)
@@ -29,7 +29,13 @@ public class ErrorMessage extends FoodMessage {
         return message;
     }
     
-    public final void setErrorMessage( String message ) {
+    public final void setErrorMessage( String message ) throws FoodNetworkException {
+        if ( message == null ) {
+            throw new FoodNetworkException("Expected non-null error message");
+        }
+        if ( message.length() < 1 ) {
+            throw new FoodNetworkException("Expected non-empty String for error message");
+        }
         this.message = message;
     }
 
@@ -73,7 +79,7 @@ public class ErrorMessage extends FoodMessage {
         super.encode(out);
         try {
             out.writeString(getRequest());
-            out.writeString(getErrorMessage());
+            out.writeFLString(getErrorMessage());
             out.writeEndline();
         } catch (IOException e) {
             throw new FoodNetworkException(e.getMessage());

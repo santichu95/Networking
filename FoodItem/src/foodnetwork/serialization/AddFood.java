@@ -7,7 +7,7 @@ public class AddFood extends FoodMessage {
 
     public AddFood( long messageTimestamp, FoodItem foodItem ) throws FoodNetworkException{
         setMessageTimestamp(messageTimestamp);
-        this.foodItem = foodItem;
+        setFoodItem(foodItem);
     }
     
     @Override
@@ -38,20 +38,23 @@ public class AddFood extends FoodMessage {
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (!super.equals(obj)) {
+        if ( obj == null ) {
             return false;
         }
-        if (!(obj instanceof AddFood)) {
+        if ( this == obj ) {
+            return true;
+        }
+        if ( !super.equals(obj) ) {
+            return false;
+        }
+        if ( !(obj instanceof AddFood) ) {
             return false;
         }
         AddFood other = (AddFood) obj;
-        if (foodItem == null && other.foodItem != null ) {
+        if ( foodItem == null && other.foodItem != null ) {
                 return false;
         }
-        if (!foodItem.equals(other.foodItem)) {
+        if ( !foodItem.equals(other.foodItem) ) {
             return false;
         }
         return true;
@@ -66,7 +69,10 @@ public class AddFood extends FoodMessage {
         return foodItem;
     }
     
-    public final void setFoodItem( FoodItem foodItem ) {
+    public final void setFoodItem( FoodItem foodItem ) throws FoodNetworkException {
+        if ( foodItem == null ) {
+            throw new FoodNetworkException("Expected non-null FoodItem");
+        }
         this.foodItem = foodItem;
     }
 
