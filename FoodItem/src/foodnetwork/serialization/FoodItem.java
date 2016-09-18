@@ -75,10 +75,10 @@ public class FoodItem {
      * @throws FoodNetworkException Something went wrong encoding
      */
     public void encode(MessageOutput out) throws FoodNetworkException {
-        out.writeName(name);
-        out.writeType(type);
-        out.writeCal(calories);
-        out.writeFat(fat);        
+        out.writeFLString(name);
+        out.writeChar(type.getMealTypeCode());
+        out.writeLong(calories);
+        out.writeStringDouble(fat);        
     }
 
     @Override

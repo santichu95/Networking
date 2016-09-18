@@ -8,6 +8,7 @@
 package foodnetwork.serialization;
 
 import java.io.IOException;
+import java.io.OutputStream;
 
 /**
  * Serialization output source
@@ -17,7 +18,7 @@ import java.io.IOException;
  */
 public class MessageOutput {
 
-    java.io.OutputStream out;
+    OutputStream out;
 
     /**
      * Constructs a new output source from an OutputStream
@@ -29,8 +30,12 @@ public class MessageOutput {
         this.out = out;
     }
     
-    public void writeInt(String name) throws IOException {
-        out.write((((Integer) name.length()).toString() + " ").getBytes());
+    public void writeInt(int number) throws IOException {
+        out.write((((Integer) number).toString() + " ").getBytes());
+    }
+    
+    public void writeString( String string ) throws IOException {
+        out.write((string + " ").getBytes());
     }
 
     /**
@@ -40,9 +45,9 @@ public class MessageOutput {
      *            name
      * @throws FoodNetworkException
      */
-    public void writeName(String name) throws FoodNetworkException {
+    public void writeFLString(String name) throws FoodNetworkException {
         try {
-            writeInt(name);
+            writeInt(name.length());
             out.write((name).getBytes());
         } catch (IOException e) {
            throw new FoodNetworkException(e.getMessage());
@@ -50,15 +55,15 @@ public class MessageOutput {
     }
 
     /**
-     * Writes calories to OutputStream
+     * Writes the given long to OutputStream
      * 
-     * @param calories
-     *            calories
+     * @param number
+     *            long to be written
      * @throws FoodNetworkException
      */
-    public void writeCal(long calories) throws FoodNetworkException {
+    public void writeLong(long number) throws FoodNetworkException {
         try {
-            out.write((((Long) calories).toString() + " ").getBytes());
+            out.write((((Long) number).toString() + " ").getBytes());
         } catch (IOException e) {
             throw new FoodNetworkException(e.getMessage());
         }
@@ -71,26 +76,35 @@ public class MessageOutput {
      *            meal type
      * @throws FoodNetworkException
      */
-    public void writeType(MealType type) throws FoodNetworkException {
+    public void writeChar(char character) throws FoodNetworkException {
         try {
-            out.write(((Character) type.getMealTypeCode()).toString().getBytes());
+            out.write((((Character) character).toString()).getBytes());
+        } catch (IOException e) {
+            throw new FoodNetworkException(e.getMessage());
+        }
+    }
+    
+    public void writeEndline() throws FoodNetworkException{
+        try {
+            out.write('\n');
         } catch (IOException e) {
             throw new FoodNetworkException(e.getMessage());
         }
     }
 
     /**
-     * Writes Fat to OutputStream
+     * Writes string double to OutputStream
      * 
-     * @param fat
-     *            grams of fat
-     * @throws FoodNetworkException
+     * @param number
+     *            double to be written to OutputStream
+     * @throws FoodNetworkException if I/O error occurs
      */
-    public void writeFat(String fat) throws FoodNetworkException {
+    public void writeStringDouble(String number) throws FoodNetworkException {
         try {
-            out.write((fat + " ").getBytes());
+            out.write((number + " ").getBytes());
         } catch (IOException e) {
             throw new FoodNetworkException(e.getMessage());
         }
     }
+
 }

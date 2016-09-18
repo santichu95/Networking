@@ -198,4 +198,24 @@ public class MessageInput {
         
         return number;
     }
+    
+    public String readString() throws IOException {
+        buffer = new byte[charSize];
+        String tempString = "";
+        boolean endString = false;
+
+        while (!endString && charSize == input.read(buffer, 0, charSize)) {
+            if ( buffer[0] != DELIMITER ) {
+               tempString += ((char) buffer[0]);
+            } else {
+                endString = true;
+            }
+        }
+        
+        if ( !endString ) {
+            throw new EOFException("Expected more input");
+        }
+
+        return tempString;
+    }
 }

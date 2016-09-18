@@ -440,7 +440,7 @@ public class FoodItemTest {
         
         testOut = new MessageOutput(outPipe);
         
-        testOut.writeType(MealType.Breakfast);
+        testOut.writeChar(MealType.Breakfast.getMealTypeCode());
         
         outPipe.close();
         
@@ -460,7 +460,7 @@ public class FoodItemTest {
         
         testOut = new MessageOutput(outPipe);
         
-        testOut.writeFat("3.8");
+        testOut.writeStringDouble("3.8");
         
         outPipe.close();
 
@@ -553,7 +553,7 @@ public class FoodItemTest {
 
         testOut = new MessageOutput(outPipe);
 
-        testOut.writeName("plum");
+        testOut.writeFLString("plum");
 
         outPipe.close();
 
@@ -577,7 +577,7 @@ public class FoodItemTest {
 
         testOut = new MessageOutput(outPipe);
 
-        testOut.writeCal(50L);
+        testOut.writeLong(50L);
 
         outPipe.close();
 
