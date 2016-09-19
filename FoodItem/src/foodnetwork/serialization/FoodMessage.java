@@ -7,6 +7,7 @@ public abstract class FoodMessage {
     
     protected long messageTimestamp;
     private final static String versionNum = "FN1.0";
+    private final static char ENDLINECHAR = '\n';
 
     public static FoodMessage decode( MessageInput in ) throws FoodNetworkException, IOException {
         String version;
@@ -35,6 +36,12 @@ public abstract class FoodMessage {
             reqMessage = new ErrorMessage( timestamp, in.readFLString() );
         } else {
             throw new FoodNetworkException("Unexpected request");
+        }
+        
+        char endline = in.readChar();
+        
+        if ( endline != ENDLINECHAR ) {
+            throw new FoodNetworkException("Expected ENDLINECHAR:" + ENDLINECHAR + " recieved: " + endline );
         }
 
         return reqMessage;

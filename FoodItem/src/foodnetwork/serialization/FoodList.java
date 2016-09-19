@@ -1,12 +1,13 @@
 package foodnetwork.serialization;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class FoodList extends FoodMessage {
     
     private long modTimestamp;
-    private static List<FoodItem> foods;
+    private static List<FoodItem> foods = new ArrayList<FoodItem>();
 
     public FoodList( long timestamp, long modTimestamp ) throws FoodNetworkException {
         setMessageTimestamp( timestamp );
@@ -25,7 +26,7 @@ public class FoodList extends FoodMessage {
     }
     
     public List<FoodItem> getFoodItemList() {
-        return foods;
+        return new ArrayList<FoodItem>(foods);
     }
         
     public void addFoodItem( FoodItem foodItem ) {

@@ -9,6 +9,7 @@
 package foodnetwork.serialization.test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotEquals;
 
 import java.io.ByteArrayOutputStream;
@@ -19,15 +20,84 @@ import java.io.OutputStream;
 import org.junit.Test;
 
 import foodnetwork.serialization.ErrorMessage;
+import foodnetwork.serialization.FoodMessage;
 import foodnetwork.serialization.FoodNetworkException;
+import foodnetwork.serialization.GetFood;
 import foodnetwork.serialization.MessageOutput;
 
 /**
 * ErrorMessageTest class using JUnit4 test cases to test the accuracy of package foodnetwork.serialization
 * @author Jonathan Myers & Santiago Andaluz
-* @version 1.1 Build 9/17/2016
+* @version 1.1 Build 9/18/2016
 */
 public class ErrorMessageTest {
+    @Test
+    public void testEqualsDiffMessage() throws FoodNetworkException {
+        FoodMessage req1 = new ErrorMessage(1, "Cannot add FoodItem"); 
+        FoodMessage req2 = new ErrorMessage(1, "Invalid request");
+        
+        assertFalse(req1.equals(req2));
+    }
+
+    @Test
+    public void testEqualsDiffObject() throws FoodNetworkException {
+        FoodMessage req1 = new ErrorMessage(1, "Cannot add FoodItem"); 
+        FoodMessage req2 = new GetFood(1);
+        
+        assertFalse(req1.equals(req2));
+    }
+
+    @Test
+    public void testEqualsNull() throws FoodNetworkException {
+        FoodMessage req1 = new ErrorMessage(1, "Cannot add FoodItem"); 
+        
+        assertFalse(req1.equals(null));
+    }
+
+    @Test
+    public void testEqualsSameObject() throws FoodNetworkException {
+        FoodMessage req1 = new ErrorMessage(1, "Cannot add FoodItem"); 
+        FoodMessage req2 = new ErrorMessage(1, "Cannot add FoodItem"); 
+        
+        assertEquals(req1, req2);
+    }
+
+    @Test
+    public void testEqualsReflexsive() throws FoodNetworkException {
+        FoodMessage req1 = new ErrorMessage(1, "Cannot add FoodItem"); 
+        
+        assertEquals(req1.equals(req1), req1.equals(req1));
+    }
+
+    @Test
+    public void testEqualsSymmertric() throws FoodNetworkException {
+        FoodMessage req1 = new ErrorMessage(1, "Cannot add FoodItem"); 
+        FoodMessage req2 = new ErrorMessage(1, "Cannot add FoodItem"); 
+        
+        assertEquals(req1.equals(req2), req2.equals(req1));
+    }
+
+    @Test
+    public void testToStringEqualObjects() throws FoodNetworkException {
+        FoodMessage req1 = new ErrorMessage(1, "Cannot add FoodItem"); 
+        FoodMessage req2 = new ErrorMessage(1, "Cannot add FoodItem"); 
+        assertEquals(req1.toString(), req2.toString());
+    }
+
+    @Test
+    public void testHashCodeEqualObjectsSameCode() throws FoodNetworkException {
+        FoodMessage req1 = new ErrorMessage(1, "Cannot add FoodItem"); 
+        FoodMessage req2 = new ErrorMessage(1, "Cannot add FoodItem"); 
+        int hash1 = req1.hashCode(), hash2 = req2.hashCode();
+        assertEquals(hash1, hash2);
+    }
+    
+    @Test
+    public void testHashCodeConsistant() throws FoodNetworkException {
+        FoodMessage req = new ErrorMessage(1, "Cannot add FoodItem"); 
+        int hash1 = req.hashCode(), hash2 = req.hashCode();
+        assertEquals(hash1, hash2);
+    }
 	
 	/**
 	 * Tests ErrorMessage(long messageTimestamp, String errorMessage)

@@ -32,7 +32,7 @@ public class AddFood extends FoodMessage {
     public int hashCode() {
         final int prime = 31;
         int result = super.hashCode();
-        result = prime * result + ((foodItem == null) ? 0 : foodItem.hashCode());
+        result = prime * result +  foodItem.hashCode();
         return result;
     }
 
@@ -51,9 +51,6 @@ public class AddFood extends FoodMessage {
             return false;
         }
         AddFood other = (AddFood) obj;
-        if ( foodItem == null && other.foodItem != null ) {
-                return false;
-        }
         if ( !foodItem.equals(other.foodItem) ) {
             return false;
         }

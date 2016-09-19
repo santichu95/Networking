@@ -46,7 +46,7 @@ public class ErrorMessage extends FoodMessage {
     public int hashCode() {
         final int prime = 31;
         int result = super.hashCode();
-        result = prime * result + ((message == null) ? 0 : message.hashCode());
+        result = prime * result +  message.hashCode();
         return result;
     }
 
@@ -65,9 +65,6 @@ public class ErrorMessage extends FoodMessage {
             return false;
         }
         ErrorMessage other = (ErrorMessage) obj;
-        if (message == null && other.message != null) {
-                return false;
-        }
         if (!message.equals(other.message)) {
             return false;
         }
