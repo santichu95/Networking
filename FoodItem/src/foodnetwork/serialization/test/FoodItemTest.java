@@ -43,13 +43,6 @@ public class FoodItemTest {
         foodOne = new FoodItem(null, MealType.Breakfast, 50, "2.8");
     }
     
-    @Test
-    public void testEncodePrint() throws FoodNetworkException, IOException {
-        foodOne = new FoodItem("plum", MealType.Breakfast, 50, "2.8");
-        testOut = new MessageOutput(System.out);
-        foodOne.encode(testOut);
-    }
-    
     @Test(expected = EOFException.class)
     public void testReadFatNoInput() throws IOException, FoodNetworkException {
         inPipe = new PipedInputStream();

@@ -1,18 +1,35 @@
+/************************************************
+*
+* Author: Santiago Andaluz Ruiz
+* Assignment: Program 1
+* Class: CSI 4321 Data Comm
+*
+************************************************/
 package foodnetwork.serialization;
 
 import java.io.IOException;
 
+/**Represents an error message and provides serialization/deserialization
+ * @author Santiago Andaluz Ruiz
+ *
+ */
 public class ErrorMessage extends FoodMessage {
 
-    String message;
+    private String message;
+    private final char ENDLINE = '\n';
 
+    /**Constructs error message using set values
+     * @param timestamp message timestamp
+     * @param message error message
+     * @throws FoodNetworkException if validation fails
+     */
     public ErrorMessage( long timestamp, String message ) throws FoodNetworkException {
         setMessageTimestamp( timestamp );
         setErrorMessage( message );
     }
 
     /* (non-Javadoc)
-     * @see java.lang.Object#toString()
+     * @see foodnetwork.serialization.FoodMessage#toString()
      */
     @Override
     public String toString() {
@@ -20,15 +37,25 @@ public class ErrorMessage extends FoodMessage {
                 + getRequest() + "]";
     }
 
+    /* (non-Javadoc)
+     * @see foodnetwork.serialization.FoodMessage#getRequest()
+     */
     @Override
     public String getRequest() {
         return "ERROR";
     }
     
+    /**Returns error message
+     * @return error message
+     */
     public final String getErrorMessage() {
         return message;
     }
     
+    /**Sets error message
+     * @param message new error message
+     * @throws FoodNetworkException if validation fails
+     */
     public final void setErrorMessage( String message ) throws FoodNetworkException {
         if ( message == null ) {
             throw new FoodNetworkException("Expected non-null error message");
@@ -42,6 +69,9 @@ public class ErrorMessage extends FoodMessage {
     /* (non-Javadoc)
      * @see java.lang.Object#hashCode()
      */
+    /* (non-Javadoc)
+     * @see foodnetwork.serialization.FoodMessage#hashCode()
+     */
     @Override
     public int hashCode() {
         final int prime = 31;
@@ -52,6 +82,9 @@ public class ErrorMessage extends FoodMessage {
 
     /* (non-Javadoc)
      * @see java.lang.Object#equals(java.lang.Object)
+     */
+    /* (non-Javadoc)
+     * @see foodnetwork.serialization.FoodMessage#equals(java.lang.Object)
      */
     @Override
     public boolean equals(Object obj) {
@@ -71,13 +104,16 @@ public class ErrorMessage extends FoodMessage {
         return true;
     }
     
+    /* (non-Javadoc)
+     * @see foodnetwork.serialization.FoodMessage#encode(foodnetwork.serialization.MessageOutput)
+     */
     @Override
     public void encode( MessageOutput out ) throws FoodNetworkException {
         super.encode(out);
         try {
             out.writeString(getRequest());
             out.writeFLString(getErrorMessage());
-            out.writeEndline();
+            out.writeChar(ENDLINE);
         } catch (IOException e) {
             throw new FoodNetworkException(e.getMessage());
         }

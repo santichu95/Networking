@@ -43,7 +43,7 @@ public class MessageOutput {
      * 
      * @param name
      *            name
-     * @throws FoodNetworkException
+     * @throws FoodNetworkException premature end of stream
      */
     public void writeFLString(String name) throws FoodNetworkException {
         try {
@@ -59,7 +59,7 @@ public class MessageOutput {
      * 
      * @param number
      *            long to be written
-     * @throws FoodNetworkException
+     * @throws FoodNetworkException premature end of stream
      */
     public void writeLong(long number) throws FoodNetworkException {
         try {
@@ -70,11 +70,11 @@ public class MessageOutput {
     }
 
     /**
-     * Writes meal type to OutputStream
+     * Writes char to OutputStream
      * 
-     * @param type
-     *            meal type
-     * @throws FoodNetworkException
+     * @param character char to write
+     *            
+     * @throws FoodNetworkException premature end of stream
      */
     public void writeChar(char character) throws FoodNetworkException {
         try {
@@ -84,14 +84,6 @@ public class MessageOutput {
         }
     }
     
-    public void writeEndline() throws FoodNetworkException{
-        try {
-            out.write('\n');
-        } catch (IOException e) {
-            throw new FoodNetworkException(e.getMessage());
-        }
-    }
-
     /**
      * Writes string double to OutputStream
      * 

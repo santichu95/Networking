@@ -40,4 +40,17 @@ public class FoodNetworkException extends java.lang.Exception {
         super(message, cause);
     }
 
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) throws FoodNetworkException {
+        if (message == null) {
+            throw new FoodNetworkException("Expected non-null string for message");
+        } if ( message.length() < 1 ) {
+            throw new FoodNetworkException("Expected non-empty string for message");
+        }
+        this.message = message;
+    }
+
 }

@@ -79,6 +79,7 @@ public class MessageInput {
      * @return int that was read from InputStream
      * @throws FoodNetworkException Did not get correct input
      * @throws IOException some I/O error occurs
+     * @throws EOFException expected more input
      */
     public int readInt() throws EOFException, FoodNetworkException, IOException {
         buffer = new byte[charSize];
