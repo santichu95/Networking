@@ -26,7 +26,7 @@ import foodnetwork.serialization.MessageInput;
 
 /**
  * FoodMessageTest class using JUnit4 test cases to test the accuracy of package foodnetwork.serialization
- * @author Jonathan Myers & Santiago Andaluz
+ * @author Jonathan Myers and Santiago Andaluz
  * @version 1.1 Build 9/20/2016
  */
 public class FoodMessageTest {

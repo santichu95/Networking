@@ -29,7 +29,7 @@ import foodnetwork.serialization.MessageOutput;
 
 /**
  * AddFoodTest class using JUnit4 test cases to test the accuracy of package foodnetwork.serialization
- * @author Jonathan Myers & Santiago Andaluz
+ * @author Jonathan Myers and Santiago Andaluz
  * @version 1.2 Build 9/18/2016
  */
 public class AddFoodTest {
@@ -147,6 +147,7 @@ public class AddFoodTest {
 	/**
 	 * Tests AddFood.encode(MessageOutput out)
 	 * @throws FoodNetworkException if serialization output fails
+	 * @throws IOException if I/O error
 	 */
 	@Test(expected=FoodNetworkException.class)
 	public void testAddFoodEncodeFails() throws FoodNetworkException, IOException {
@@ -163,6 +164,7 @@ public class AddFoodTest {
 	/**
 	 * Tests AddFood.encode(MessageOutput out)
 	 * @throws FoodNetworkException if serialization output fails
+	 * @throws IOException if I/O error
 	 */
 	@Test
 	public void testAddFoodEncodePasses() throws FoodNetworkException, IOException {

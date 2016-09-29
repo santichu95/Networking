@@ -21,6 +21,13 @@ public class FoodItem {
     private MealType type;
     private long calories;
     private String fat;
+    
+    public FoodItem() {
+    	name = " ";
+    	type = null;
+    	calories = 0L;
+    	fat = "0.0";
+    }
 
     /**
      * @param in

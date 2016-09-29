@@ -16,9 +16,17 @@ import foodnetwork.serialization.MessageOutput;
 
 import java.io.IOException;
 
-
+/**Food Network client that interacts with a user and a given server.
+ * 
+ * @author Santiago Andaluz Ruiz
+ *
+ */
 public class Client {
 
+	/**
+	 * @param args the server name and the socket to use
+	 * @throws IOException if I/O error closing socket
+	 */
 	public static void main(String[] args) throws IOException  {
 		//Check for valid parameters
 		if ( (args.length != 2) ) { // Test for correct # of args
@@ -26,7 +34,6 @@ public class Client {
 		}
 		
 		String server = args[0];       // Server name or IP address
-
 		// Convert argument String to bytes using the default character encoding
 		int servPort = Integer.parseInt(args[1]);
 		
@@ -76,47 +83,48 @@ public class Client {
 			//Get the current time of request
 			timestamp = System.currentTimeMillis();
 
-			//the request is ADD
-			if ( userReq.equals(AddFood.getRequestType()) ){
-
-				//Attributes for food item
-				String foodName, 
-						fat,
-						calories,
-						mealtype;
-
-				//Prompt for food item attributes
-				System.out.print("Name>");
-				foodName = kb.nextLine();
-				System.out.print("Meal type(B,L,D,S)>");
-				mealtype = kb.nextLine();
-				System.out.print("Calories>");
-				calories = kb.nextLine();
-				System.out.print("Fat>");
-				fat = kb.nextLine();
-
-				try {
-					//Checks for valid FoodItem and AddFood
-					FoodItem food = new FoodItem(foodName,MealType.getMealType(mealtype.charAt(0)),Long.parseLong(calories),fat);
+			try {
+				//the request is ADD
+				if ( userReq.equals(AddFood.getRequestType()) ){
+	
+					//Attributes for food item
+					String foodName, 
+							fat,
+							calories,
+							mealtype;
+					
+					//dummy food to validate input
+					FoodItem food = new FoodItem();
+	
+					//Prompt for food item attributes
+					System.out.print("Name>");
+					foodName = kb.nextLine();
+					food.setName(foodName);
+					
+					System.out.print("Meal type(B,L,D,S)>");
+					mealtype = kb.nextLine();
+					food.setMealType(MealType.getMealType(mealtype.charAt(0)));
+					
+					System.out.print("Calories>");
+					calories = kb.nextLine();
+					food.setCalories(Long.parseLong(calories));
+					
+					System.out.print("Fat>");
+					fat = kb.nextLine();
+					food.setFat(fat);
+				
 					req = new AddFood(timestamp, food);
-				} catch (FoodNetworkException e) {
-					System.err.println("Invalid user input:" + e.getMessage());
-					continue;
-				} catch ( NumberFormatException e2 ) {
-					System.err.println("Invalid user input: Expected long recieved: " + calories );
-					continue;
-				}
-				
-				
-			} else { //the request is GET
-
-				//Generate GetFood request
-				try {
+					
+				} else { //the request is GET
+					//Generate GetFood request
 					req = new GetFood(timestamp);
-				} catch (FoodNetworkException e) {
-					System.err.println("Invalid user input: " + e.getMessage());
-					continue;
 				}
+			} catch (FoodNetworkException e) {
+				System.err.println("Invalid user input: " + e.getMessage());
+				continue;
+			} catch (NumberFormatException e2 ) {
+				System.err.println("Invalid user input: " + e2);
+				continue;
 			}
 
 			
@@ -133,7 +141,6 @@ public class Client {
 			//Read in the message from the server
 			try {
 				response = FoodMessage.decode(in);
-				System.out.println(response);
 			} catch (IOException e1) {
 				System.err.println("Unable to communicate: " + e1.getMessage());
 				socket.close();
@@ -158,6 +165,8 @@ public class Client {
 					continue;
 				}
 			}
+
+			System.out.println(response);
 			
 			//Checks if the user wants to continue
 			do {

@@ -24,7 +24,7 @@ import foodnetwork.serialization.MessageOutput;
 
 /**
  * GetFoodTest class using JUnit4 test cases to test the accuracy of package foodnetwork.serialization
- * @author Jonathan Myers & Santiago Andaluz
+ * @author Jonathan Myers and Santiago Andaluz
  * @version 1.1 Build 9/18/2016
  */
 public class GetFoodTest {

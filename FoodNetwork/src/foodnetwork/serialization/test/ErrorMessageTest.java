@@ -27,7 +27,7 @@ import foodnetwork.serialization.MessageOutput;
 
 /**
 * ErrorMessageTest class using JUnit4 test cases to test the accuracy of package foodnetwork.serialization
-* @author Jonathan Myers & Santiago Andaluz
+* @author Jonathan Myers and Santiago Andaluz
 * @version 1.1 Build 9/18/2016
 */
 public class ErrorMessageTest {
@@ -129,6 +129,7 @@ public class ErrorMessageTest {
 	/**
 	 * Tests ErrorMessage.encode(MessageOutput out)
 	 * @throws FoodNetworkException if serialization output fails
+	 * @throws IOException if I/O error
 	 */
 	@Test(expected=FoodNetworkException.class)
 	public void testErrorMessageEncodeFails() throws FoodNetworkException, IOException {
@@ -145,6 +146,7 @@ public class ErrorMessageTest {
 	/**
 	 * Tests ErrorMessage.encode(MessageOutput out)
 	 * @throws FoodNetworkException if serialization output fails
+	 * @throws IOException if I/O error
 	 */
 	@Test
 	public void testEncodePasses() throws FoodNetworkException, IOException {
