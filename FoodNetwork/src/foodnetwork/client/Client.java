@@ -1,4 +1,11 @@
-package foodnetwork.serialization.client;
+/***************************************************
+ *
+ * Author:      Santiago Andaluz
+ * Assignment:  Program 2
+ * Class:       CSI 4321
+ *
+ ***************************************************/
+package foodnetwork.client;
 
 import java.net.Socket;
 import java.util.Scanner;
@@ -77,6 +84,7 @@ public class Client {
 			userReq = kb.nextLine();
 			if ( !userReq.equals(AddFood.getRequestType()) && !userReq.equals(GetFood.getRequestType()) ) {
 				System.err.println("Invalid user input: Expected ADD or GET, recieved: " + userReq);
+				cont = askCont(kb);
 				continue;
 			}
 
@@ -121,9 +129,11 @@ public class Client {
 				}
 			} catch (FoodNetworkException e) {
 				System.err.println("Invalid user input: " + e.getMessage());
+				cont = askCont(kb);
 				continue;
 			} catch (NumberFormatException e2 ) {
 				System.err.println("Invalid user input: " + e2);
+				cont = askCont(kb);
 				continue;
 			}
 
@@ -155,6 +165,7 @@ public class Client {
 			
 			if ( response.getRequest().equals(ErrorMessage.getRequestType()) ) {
 				System.err.println("Error: " + (((ErrorMessage) response).getErrorMessage()) );
+				cont = askCont(kb);
 				continue;
 			}
 
@@ -162,6 +173,7 @@ public class Client {
 			if ( userReq.equals(AddFood.getRequestType()) || userReq.equals(GetFood.getRequestType()) ) {
 				if ( !response.getRequest().equals(FoodList.getRequestType())){
 					System.err.println("Unexpected message: " + response);
+					cont = askCont(kb);
 					continue;
 				}
 			}
@@ -169,19 +181,30 @@ public class Client {
 			System.out.println(response);
 			
 			//Checks if the user wants to continue
-			do {
-				System.out.print("Continue (y/n)");
-				cont = kb.next();
-				kb.nextLine();
-				//Checks for valid input
-				if ( !cont.equals("y") && !cont.equals("n") ) {
-					System.err.println("Invalid user input: Expected y or n, recieved: " + cont);
-				}
-			}while ( !cont.equals("y") && !cont.equals("n") );
+			cont = askCont(kb);
 		}
 		
 		kb.close();
 		socket.close();
+	}
+	
+	
+	/**Asks the user if they still want to continue
+	 * @param sc Scanner that holds the user input
+	 * @return a valid answer that the user gave
+	 */
+	private static String askCont(Scanner sc){//Checks if the user wants to continue
+		String conti;
+		do {
+			System.out.print("Continue (y/n)");
+			conti = sc.next();
+			sc.nextLine();
+			//Checks for valid input
+			if ( !conti.equals("y") && !conti.equals("n") ) {
+				System.err.println("Invalid user input: Expected y or n, recieved: " + conti);
+			}
+		}while ( !conti.equals("y") && !conti.equals("n") );
+		return conti;
 	}
 		
 }

@@ -119,7 +119,7 @@ public class FoodList extends FoodMessage {
 
 	@Override
 	public String toString() {
-		String ret =  "FoodList Modified TS=" + modTimestamp + "\n" + "Msg TS" + getMessageTimestamp();
+		String ret =  "FoodList\nModified TS=" + modTimestamp + "\n" + "Msg TS=" + getMessageTimestamp() + "\n";
 		for ( FoodItem var : foods ) {
 			ret += var.toString() + "\n";
 		}
