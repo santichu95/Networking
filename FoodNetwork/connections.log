@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2016-10-18T13:03:23</date>
+  <millis>1476813803035</millis>
+  <sequence>0</sequence>
+  <logger>foodnetwork.server.Server</logger>
+  <level>CONFIG</level>
+  <class>foodnetwork.server.Server</class>
+  <method>createHandlers</method>
+  <thread>1</thread>
+  <message>Finished Configuration</message>
+</record>

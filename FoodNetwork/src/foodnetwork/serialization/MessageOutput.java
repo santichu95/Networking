@@ -18,6 +18,9 @@ import java.io.OutputStream;
  */
 public class MessageOutput {
 
+	/**
+	 * The output stream to wrap MessageOutput around
+	 */
     OutputStream out;
 
     /**
@@ -30,12 +33,20 @@ public class MessageOutput {
         this.out = out;
     }
     
-    public void writeInt(int number) throws IOException {
-        out.write((((Integer) number).toString() + " ").getBytes("US-ASCII"));
+    public void write(String string) throws FoodNetworkException {
+    	try {
+			out.write(string.getBytes("US-ASCII"));
+		} catch (IOException e) {
+			throw new FoodNetworkException(e.getMessage());
+		}
     }
     
-    public void writeString( String string ) throws IOException {
-        out.write((string + " ").getBytes("US-ASCII"));
+    public void writeInt(int number) throws FoodNetworkException {
+    	write(((Integer)number).toString() + " ");
+    }
+    
+    public void writeString( String string ) throws FoodNetworkException {
+    	write(string + " ");
     }
 
     /**
@@ -46,27 +57,18 @@ public class MessageOutput {
      * @throws FoodNetworkException premature end of stream
      */
     public void writeFLString(String name) throws FoodNetworkException {
-        try {
             writeInt(name.length());
-            out.write((name).getBytes("US-ASCII"));
-        } catch (IOException e) {
-           throw new FoodNetworkException(e.getMessage());
-        }
+            write(name);
     }
 
     /**
      * Writes the given long to OutputStream
      * 
-     * @param number
-     *            long to be written
+     * @param number long to be written
      * @throws FoodNetworkException premature end of stream
      */
     public void writeLong(long number) throws FoodNetworkException {
-        try {
-            out.write((((Long) number).toString() + " ").getBytes("US-ASCII"));
-        } catch (IOException e) {
-            throw new FoodNetworkException(e.getMessage());
-        }
+            write(((Long) number).toString() + " ");
     }
 
     /**
@@ -77,11 +79,7 @@ public class MessageOutput {
      * @throws FoodNetworkException premature end of stream
      */
     public void writeChar(char character) throws FoodNetworkException {
-        try {
-            out.write((((Character) character).toString()).getBytes("US-ASCII"));
-        } catch (IOException e) {
-            throw new FoodNetworkException(e.getMessage());
-        }
+    	write(((Character)character).toString());
     }
     
     /**
@@ -92,11 +90,7 @@ public class MessageOutput {
      * @throws FoodNetworkException if I/O error occurs
      */
     public void writeStringDouble(String number) throws FoodNetworkException {
-        try {
-            out.write((number + " ").getBytes("US-ASCII"));
-        } catch (IOException e) {
-            throw new FoodNetworkException(e.getMessage());
-        }
+    	writeString(number);
     }
 
 }

@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "foodnetwork-145901",
+  "private_key_id": "224958b4b09a22b32912e9738bddfca317e18989",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDZP3Xus/tYj48W\nemYSv2RD+ZHV7xuP8IoQoIfSGDOLulX75D0sWsfnN6sch0rC6xaf/pJQ8rwBbKx8\nrU2MCDwT+cHwt8Ly+pw7+2AU6+/Bp3t+uEhEhue45b9dqxAsgy5enJ9ObW0zDfM9\nosDd0243F5BMecMbrqp23KUKPia9Gt2w1zWSONEMo6Q5sg2savpebFWpOWlg6fKM\nELzFoBTJZ71KteXOF8il61nuLhG/0yKk5SIMH7MNaTK894PtlyOLoRUXLPS7jWNV\nOSpOa3vNoCi8DDO+plDtG/K9tIo8ttqpz67bZLO2mgdVVSIlbwryuXmXwRbzNN09\npJUOc6/HAgMBAAECggEAPNkdewJGQAPVnAIkXNPmjXN1eWpDWgmRYh7Ua/ADX/uM\n4cSHrcivfP+GmbL7KaUW7TEsYifaqLt7hGA1/CbCTQYDYBzYKZ4v7Ez4GGQM/zyd\nxlxvQWJXvN38v4uOOCl172IG7LyRfV9G5diUFI2HrT6YWBMypqpBbJFYWIoX55b+\nYFtYHhT0DWMWMJe7bSZAJv/ExDhU6tdEA2/jzlt1t1byyw5PoIJe3y6wEeHs/3kS\n53qDrchGfbxVmj3k/kBtTk2XvujifV9wEmPYqn50cdpdOEh75RGKLHZYRGr9EMH7\nsaddrofKw2YOUa5ofTVgwOic0r24rZReg1KIznmvgQKBgQD8Tvp+YykFKyeQwI/T\n2MAt0XFVjiZNsLH8S5L2u8RlTAH16zD9FwwyrITw8XFlrbZ9qtYR4MBi9l7ImrAW\nNWKaCil08MJyMnom2mB5NOFmshZixO60mX6xjdI/VEFqY3frVyZtnOcK4bBqzpyG\nGdwjZ8fkMcIxHTlDnaqTkWDvEQKBgQDcbSmjIw2JBFzXkF6V6qCgvdmIR0wa6zy4\nPIgpBszYdAQuGimM9tYKUj6lOkvjq2G6x//Yb3y1QcnviX1FuCEvipNg05DQqNiV\n4O9o4W5td7ZqKT4g9Rp3vI3cUesnfqnQT6ludbKxi6eX2Avd/TX+fpiU2X38RXvL\nR0NOZx1hVwKBgQCwWceN9WMjgLFL5Lvi15ojrEOqCAxPuxP8gxo6qK0yHDk2mOgJ\nzkUxWhIlkqyu5AcsuO6dWlk+EnPXhP9U1oWPo1CssudGCHAGnhZWQZbWP92TtZAe\n3TaHhdgReaOrZ9DWxnhOnx+CJJM5ZCZVONf8SzqVDg5sY7+1ugsSz8dP8QKBgGCN\nhJaMDSq+eXiHKZdbjf67CmVSbbjA3/kHstDdxK7vqsES/q5blQgyXHR9o65XbNin\nMJ96vlKbPbwqKnB2pjqv5bydD6sGutB0FgqH7JoQvRulcyx2kKBwPGeMjoffSL0R\nl/LlpV91//RYU2JqvtL6WxWgazosqXwye/4E1u7DAoGBAPSjvg0WMiuPZUkX3VHz\nguxyUiWQ/OAXsc96l+XLu7Qrsc8qOwl9arOpsyw6PHYhqMDqedLHFhiypQTMpJUD\n+c5DdC6iNqhTmybepwMsW/jmD15ra1XPi6NHiZS9poMSzTWbI/0iNWey8uYRodVx\nbrqlZviDegGBmiopZMQ3Bay+\n-----END PRIVATE KEY-----\n",
+  "client_email": "foodnetwork@foodnetwork-145901.iam.gserviceaccount.com",
+  "client_id": "109325826387620051195",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/foodnetwork%40foodnetwork-145901.iam.gserviceaccount.com"
+}

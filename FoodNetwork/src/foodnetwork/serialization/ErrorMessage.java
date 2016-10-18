@@ -7,21 +7,26 @@
 ************************************************/
 package foodnetwork.serialization;
 
-import java.io.IOException;
-
 /**Represents an error message and provides serialization/deserialization
  * @author Santiago Andaluz Ruiz
- *
  */
 public class ErrorMessage extends FoodMessage {
 
-    private String message;
-    private final char ENDLINE = '\n';
+	/**
+	 * The cause of the error
+	 */
+    private String message;    
+    /**
+     * The label of the message
+     */
     private final static String TYPE = "ERROR";
     
+    /**Gets the type of request
+     * @return the type of request
+     */
     public static String getRequestType() {
     	return TYPE;
-    };
+    }
 
     /**Constructs error message using set values
      * @param timestamp message timestamp
@@ -47,7 +52,7 @@ public class ErrorMessage extends FoodMessage {
      */
     @Override
     public String getRequest() {
-        return TYPE;
+        return ErrorMessage.getRequestType();
     }
     
     /**Returns error message
@@ -115,12 +120,8 @@ public class ErrorMessage extends FoodMessage {
     @Override
     public void encode( MessageOutput out ) throws FoodNetworkException {
         super.encode(out);
-        try {
-            out.writeString(getRequest());
-            out.writeFLString(getErrorMessage());
-            out.writeChar(ENDLINE);
-        } catch (IOException e) {
-            throw new FoodNetworkException(e.getMessage());
-        }
+        out.writeString(getRequest());
+        out.writeFLString(getErrorMessage());
+        out.writeChar(FoodMessage.ENDLINECHAR);
     }
 }

@@ -16,9 +16,18 @@ import java.io.IOException;
  */
 public abstract class FoodMessage {
     
+	/**
+	 * The timestamp of when the message was created
+	 */
     protected long messageTimestamp;
+    /**
+     * The version number of the FoodNetwork protocol
+     */
     private final static String versionNum = "FN1.0";
-    private final static char ENDLINECHAR = '\n';
+    /**
+     * The character denoting the end of a message
+     */
+    protected final static char ENDLINECHAR = '\n';
 
     /**Deserializes message from byte source
      * @param in deserialization input source
@@ -43,11 +52,11 @@ public abstract class FoodMessage {
         String request = in.readString();
         
         FoodMessage reqMessage = null;
-        if ( request.equals("ADD") ) {
+        if ( request.equals(AddFood.getRequestType()) ) {
             reqMessage = new AddFood( timestamp, new FoodItem(in) );
-        } else if ( request.equals("GET")) {
+        } else if ( request.equals(GetFood.getRequestType())) {
             reqMessage = new GetFood( timestamp );
-        } else if ( request.equals("LIST") ) {
+        } else if ( request.equals(FoodList.getRequestType()) ) {
             reqMessage = new FoodList( timestamp, in.readLong() );
             
             int sizeList = in.readInt();
@@ -56,10 +65,12 @@ public abstract class FoodMessage {
                 ((FoodList)reqMessage).addFoodItem(new FoodItem(in));
             }
             
-        } else if ( request.equals("ERROR")) {
+        } else if ( request.equals(ErrorMessage.getRequestType())) {
             reqMessage = new ErrorMessage( timestamp, in.readFLString() );
+        } else if ( request.equals(Interval.getRequestType())){
+        	reqMessage = new Interval( timestamp, in.readInt() );
         } else {
-            throw new FoodNetworkException("Unexpected request");
+            throw new FoodNetworkException("Unexpected request " + request);
         }
         
         char endline = in.readChar();
@@ -76,12 +87,8 @@ public abstract class FoodMessage {
      * @throws FoodNetworkException if serialization fails
      */
     public void encode( MessageOutput out ) throws FoodNetworkException {
-        try {
-            out.writeString(versionNum);
-            out.writeLong(getMessageTimestamp());
-        } catch (IOException e) {
-            throw new FoodNetworkException("I/O interrupted");
-        }
+        out.writeString(versionNum);
+        out.writeLong(getMessageTimestamp());
     }
     
     

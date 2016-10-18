@@ -15,9 +15,9 @@ package foodnetwork.serialization;
  */
 public class FoodNetworkException extends java.lang.Exception {
 
+	//Version ID of FoodNetwork Exception for FN1.0
     private static final long serialVersionUID = 1810537222285527822L;
-    private String message;
-
+    
     /**
      * Constructs food network exception with null cause
      * 
@@ -43,14 +43,4 @@ public class FoodNetworkException extends java.lang.Exception {
     public String getMessage() {
         return super.getMessage();
     }
-
-    public void setMessage(String message) throws FoodNetworkException {
-        if (message == null) {
-            throw new FoodNetworkException("Expected non-null string for message");
-        } if ( message.length() < 1 ) {
-            throw new FoodNetworkException("Expected non-empty string for message");
-        }
-        this.message = message;
-    }
-
 }

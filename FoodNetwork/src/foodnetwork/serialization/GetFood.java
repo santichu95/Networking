@@ -7,17 +7,20 @@
 ************************************************/
 package foodnetwork.serialization;
 
-import java.io.IOException;
-
 /**Represents a GetFood and provides serialization/deserialization
  * @author Santiago Andaluz Ruiz
  *
  */
 public class GetFood extends FoodMessage {
 
-    private final char ENDLINE = '\n';
+	/**
+	 * The label for the request
+	 */
     private final static String TYPE = "GET";
     
+    /**Gets the type of request
+     * @return the type of request
+     */
     public static String getRequestType() {
     	return TYPE;
     }
@@ -34,7 +37,7 @@ public class GetFood extends FoodMessage {
      */
     @Override
     public String getRequest() {
-        return TYPE;
+        return GetFood.getRequestType();
     }
 
     /* (non-Javadoc)
@@ -51,12 +54,8 @@ public class GetFood extends FoodMessage {
     @Override
     public void encode( MessageOutput out ) throws FoodNetworkException {
         super.encode(out);
-
-        try {
-            out.writeString(getRequest());
-            out.writeChar(ENDLINE);
-        } catch (IOException e) {
-            throw new FoodNetworkException(e.getMessage());
-        }
+        out.writeString(getRequest());
+        out.writeChar(FoodMessage.ENDLINECHAR);
+        
     }
 }

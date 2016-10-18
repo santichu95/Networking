@@ -7,7 +7,6 @@
 ************************************************/
 package foodnetwork.serialization;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,10 +16,22 @@ import java.util.List;
  */
 public class FoodList extends FoodMessage {
     
+	/**
+	 * The time that the list was last modified
+	 */
     private long modTimestamp;
+    /**
+     * The list of foodItems
+     */
     private List<FoodItem> foods = new ArrayList<FoodItem>();
+    /**
+     * The label for the request
+     */
     private final static String TYPE = "LIST";
     
+    /**Gets the type of request
+     * @return the type of request
+     */
     public static String getRequestType() {
     	return TYPE;
     };
@@ -95,7 +106,7 @@ public class FoodList extends FoodMessage {
      */
     @Override
     public String getRequest() {
-        return TYPE;
+        return FoodList.getRequestType();
     }
     
     /* (non-Javadoc)
@@ -104,17 +115,13 @@ public class FoodList extends FoodMessage {
     @Override
     public void encode( MessageOutput out ) throws FoodNetworkException{
        super.encode(out);
-        try {
-            out.writeString(getRequest());
-            out.writeLong(getModifiedTimestamp());
-            out.writeInt(foods.size());
-            for ( FoodItem var : foods ) {
-                var.encode(out);
-            }
-            out.writeChar('\n');
-        } catch (IOException e) {
-            throw new FoodNetworkException(e.getMessage());
+        out.writeString(getRequest());
+        out.writeLong(getModifiedTimestamp());
+        out.writeInt(foods.size());
+        for ( FoodItem var : foods ) {
+            var.encode(out);
         }
+        out.writeChar(FoodMessage.ENDLINECHAR);
     }
 
 	@Override

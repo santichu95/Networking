@@ -19,10 +19,21 @@ import java.io.InputStream;
  */
 public class MessageInput {
 
+	/**
+	 * The inputstream to wrap MessageInput around
+	 */
     private InputStream input;
+    /**
+     * Size of a character
+     */
     private final int charSize = 1;
+    /**
+     * Buffer to store input from the stream
+     */
     private byte[] buffer;
-    private int charCount;
+    /**
+     * Given delimiter for a String
+     */
     private final char DELIMITER = ' ';
 
     /**
@@ -37,22 +48,42 @@ public class MessageInput {
 
     /**
      * Reads in a Fixed Length String
-     * 
+     * @param is the number of characters to read in
+     * 			variable parameter, must be of size 0 or 1
+     * 			0: the number of bytes to read from in will come from in
+     * 			1: the number of bytes to read from in is the first element in is
      * @return the fixed length string that was read in
      * @throws FoodNetworkException
      *             if expected more bytes than were given
      * @throws IOException some I/O error occurs
      */
-    public String readFLString() throws FoodNetworkException, IOException {
+    public String readFLString(int...is) throws FoodNetworkException, IOException {
         String name;
 
+        int charCount;
+        
         //Getting the length of the string
-        charCount = this.readInt();
-        int countRead;
+        if ( is.length == 0 ){
+        	charCount = this.readInt();
+        } else if (is.length == 1){
+        	charCount = is[0];
+        } else {
+        	throw new FoodNetworkException("Too many parameters passed, expected 0 or 1 recieved " + is.length);
+        }
 
+
+    	if ( charCount < 0 ) {
+    		throw new FoodNetworkException("Size of string to be read in can not be negative");
+    	}
+
+        int countRead = 0;
+        int temp;
+        
         buffer = new byte[charCount];
 
-        countRead = input.read(buffer, 0, charCount);
+        while ( countRead < charCount && ( temp = input.read(buffer, countRead, charSize )) != -1 ) {
+        	countRead += temp;
+        }
         
         if(countRead != charCount){
             throw new EOFException("Expected more input");
@@ -72,30 +103,13 @@ public class MessageInput {
      * @throws EOFException expected more input
      */
     public int readInt() throws EOFException, FoodNetworkException, IOException {
-        buffer = new byte[charSize];
-        String tempInt = "";
-        boolean endInt = false;
-
-        while (!endInt && charSize == input.read(buffer, 0, charSize)) {
-            if ( buffer[0] != DELIMITER ) {
-               tempInt += ((char) buffer[0]);
-            } else {
-                endInt = true;
-            }
-        }
+        String tempInt = readString();
         
-        if ( !endInt ) {
-            throw new EOFException("Expected more input");
-        }
-
         try {
-            charCount = Integer.parseInt(tempInt);
+        	return Integer.parseInt(tempInt);
         } catch( NumberFormatException e ) {
-        	//Just throw NFE and validate higher
             throw new FoodNetworkException("Expected unsinged integer string");
         }
-
-        return charCount;
     }
 
     /**
@@ -107,14 +121,7 @@ public class MessageInput {
      * @throws IOException some I/O error occurs
      */
     public char readChar() throws FoodNetworkException, IOException {
-        buffer = new byte[charSize];
-
-        int counter = input.read(buffer, 0, buffer.length);
-        if ( counter < charSize ) {
-           throw new EOFException("Expected more input"); 
-        }
-
-        return (char) buffer[0];
+    	return readFLString(charSize).charAt(0);
     }
 
     /**
@@ -126,31 +133,13 @@ public class MessageInput {
      * @throws IOException some I/O error occurs
      */
     public long readLong() throws FoodNetworkException, IOException {
-
-        long number;
-        buffer = new byte[charSize];
-        String tempLong = "";
-        boolean endLong = false;
-
-        while (!endLong && 1 == input.read(buffer, 0, charSize)) {
-            if (buffer[0] != DELIMITER ) {
-                tempLong += ((char) buffer[0]);
-            } else {
-                endLong = true;
-            }
-        }
-
-        if ( !endLong ) {
-            throw new EOFException("Expected more input");
-        }
-
+        String tempLong = readString();
+        
         try {
-            number = Long.parseLong(tempLong);
+            return Long.parseLong(tempLong);
         } catch ( NumberFormatException e ) {
             throw new FoodNetworkException(e.getMessage());
         }
-
-        return number;
     }
 
     /**
@@ -162,35 +151,22 @@ public class MessageInput {
      * @throws IOException some I/O error occurs
      */
     public String readStringDouble() throws FoodNetworkException, IOException {
-        buffer = new byte[charSize];
-        String number = "";
-        boolean endFat = false;
-
-        while (!endFat && 1 == input.read(buffer, 0, charSize)) {
-            if ( buffer[0] != DELIMITER ) {
-                number += ((char) buffer[0]);
-            } else {
-                endFat = true;
-            }
-        }
-        
-        
-        if ( !endFat ) {
-            throw new EOFException("Expected more input");
-        }
-        if ( number.charAt(0) == '-' ) {
-            throw new FoodNetworkException("Expected non-negative fat");
-        }
+        String tempDouble = readString();
         
         try {
-            Double.parseDouble(number);
+            Double.parseDouble(tempDouble);
         } catch ( NumberFormatException e ) {
             throw new FoodNetworkException(e.getMessage());
         }
         
-        return number;
+        return tempDouble;
     }
     
+    /**
+     * Read up to DELIMITER is read
+     * @return the string from in until the DELIMITER is read
+     * @throws IOException some I/O error occurs
+     */
     public String readString() throws IOException {
         buffer = new byte[charSize];
         String tempString = "";

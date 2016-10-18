@@ -17,11 +17,31 @@ import java.io.IOException;
  */
 public class FoodItem {
 
+	/**
+	 * Name of the food item
+	 */
     private String name;
+    /**
+     * Which meal this food item was eating for
+     */
     private MealType type;
+    /**
+     * The amount of calories the food contains
+     */
     private long calories;
+    /**
+     * The amount of fat the food contains
+     */
     private String fat;
+
+    /**
+     * The regex for a valid double
+     */
+    private final String DOUBLEREGEX = "^[0-9]*\\.?[0-9]+$";
     
+    /**
+     * Default constructor for FoodItem
+     */
     public FoodItem() {
     	name = " ";
     	type = null;
@@ -29,7 +49,7 @@ public class FoodItem {
     	fat = "0.0";
     }
 
-    /**
+    /**Constructor for FoodItem that reads the information from MessageInput
      * @param in
      *            deserialization of input source
      * @throws FoodNetworkException
@@ -177,8 +197,10 @@ public class FoodItem {
     public void setFat(String fat) throws FoodNetworkException {
         if ( fat == null ) {
             throw new FoodNetworkException("Expected non-null fat");
-        } if (fat.matches("[a-zA-z]+")) {
+        } if (!fat.matches(DOUBLEREGEX)) {
             throw new FoodNetworkException("Expected only numerical characters in fat");
+        } if ( fat.charAt(0) == '-' ) {
+            throw new FoodNetworkException("Expected non-negative fat");
         }
         this.fat = fat;
     }
